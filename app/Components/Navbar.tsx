@@ -13,13 +13,15 @@ import {
   FiX
 } from 'react-icons/fi';
 import Image from 'next/image';
+import { FaServicestack } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Services');
 
   const navItems = [
-    { name: 'Services', icon: FiHome, href: '/services' },
+    { name: 'Home', icon: FiHome, href: '/' },
+    { name: 'Services', icon: FaServicestack, href: '/services' },
     { name: 'Portfolio', icon: FiBriefcase, href: '/portfolio' },
     { name: 'Process', icon: FiGrid, href: '/process' },
     { name: 'Pricing', icon: FiDollarSign, href: '/pricing' },
@@ -49,11 +51,11 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar - Text Only */}
-      <nav className="hidden md:flex items-center justify-between px-6 py-4 bg-white shadow-lg sticky top-0 z-50">
+      <nav className="hidden md:flex items-center justify-between px-6 py-4 bg-white  sticky top-0 z-50">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-primary transition-colors">
-            <Image src={}
+            <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-14'/>
           </Link>
         </div>
 
@@ -111,19 +113,20 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Header (Top Bar) */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white shadow-md sticky top-0 z-40">
+      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white  sticky top-0 z-40  border-b-2 border-gray-200">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-gray-800 hover:text-primary transition-colors">
-          LayerNLooms
+                      <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-12'/>
+
         </Link>
         
         {/* Hamburger Menu Button */}
-        <button
+        {/* <button
           onClick={toggleMobileMenu}
           className="p-2 text-textColor hover:text-primary transition-colors"
         >
           <FiMenu className="w-6 h-6" />
-        </button>
+        </button> */}
       </div>
 
       {/* Mobile Full-screen Menu */}

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Work_Sans, Ubuntu } from "next/font/google";
+import { Work_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,17 +19,16 @@ const workSans = Work_Sans({
   subsets: ["latin"],
 });
 
-const ubuntu = Ubuntu({
-  variable: "--font-ubuntu",
+const outfitFont = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"], 
 });
 
 export const metadata: Metadata = {
   title: "layerslooms",
   description: "",
 };
-
+ 
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,7 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`$ ${ubuntu.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable} ${outfitFont.variable} antialiased`}
+
       >
         <Navbar/>
         {children}

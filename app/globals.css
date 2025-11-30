@@ -4,6 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+@theme {
+  --color-primary:#171717;
+  --color-secondary:#262626 ;
+  --color-textColor:#374151;
+}

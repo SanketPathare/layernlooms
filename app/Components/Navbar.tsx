@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -18,12 +17,14 @@ import { FaServicestack } from 'react-icons/fa';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Services');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showDesktopBottomNav, setShowDesktopBottomNav] = useState(false);
 
   const navItems = [
     { name: 'Home', icon: FiHome, href: '/' },
     { name: 'Services', icon: FaServicestack, href: '/services' },
     { name: 'Portfolio', icon: FiBriefcase, href: '/portfolio' },
-    { name: 'Process', icon: FiGrid, href: '/process' },
     { name: 'Pricing', icon: FiDollarSign, href: '/pricing' },
     { name: 'Contact', icon: FiMail, href: '/contact' },
   ];
@@ -38,6 +39,26 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show desktop bottom nav when scrolling down, hide when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowDesktopBottomNav(true);
+      } else if (currentScrollY < lastScrollY) {
+        setShowDesktopBottomNav(false);
+      }
+      
+      // Set scrolled state for background changes
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
@@ -50,8 +71,12 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop Navbar - Text Only */}
-      <nav className="hidden md:flex items-center justify-between px-6 py-4 bg-white  sticky top-0 z-50">
+      {/* Desktop Top Navbar - Hidden on scroll */}
+      <nav 
+        className={`hidden md:flex items-center justify-around px-2 py-4 bg-white sticky top-0 z-50 transition-all duration-300 ${
+          showDesktopBottomNav ? '-translate-y-full' : 'translate-y-0'
+        } ${isScrolled ? '' : ''}`}
+      >
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-primary transition-colors">
@@ -88,6 +113,35 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {/* Desktop Bottom Navigation - Shows on scroll */}
+      <nav 
+        className={`hidden md:flex fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg z-50 transition-all duration-300 ${
+          showDesktopBottomNav ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="flex items-center px-4 py-3 space-x-8">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`flex flex-col items-center p-2 transition-all duration-200 min-w-[60px] ${
+                  activeSection === item.name
+                    ? 'text-primary transform scale-105'
+                    : 'text-textColor hover:text-primary'
+                }`}
+                onClick={() => handleNavClick(item.name)}
+              >
+                <Icon className="w-5 h-5 mb-1" />
+                <span className="text-xs font-medium">{item.name}</span>
+              </Link>
+            );
+          })}
+          
+        </div>
+      </nav>
+
       {/* Mobile Bottom Tab Navigation - Icons + Text */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
         <div className="flex justify-around items-center py-2">
@@ -113,11 +167,12 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Header (Top Bar) */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white  sticky top-0 z-40  border-b-2 border-gray-200">
+      <div className={`md:hidden flex items-center justify-between px-4 py-3 bg-white sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled ? 'shadow-md' : ''
+      }`}>
         {/* Logo */}
         <Link href="/" className="text-xl font-bold text-gray-800 hover:text-primary transition-colors">
-                      <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-12'/>
-
+          <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-12'/>
         </Link>
         
         {/* Hamburger Menu Button */}
@@ -139,7 +194,7 @@ const Navbar = () => {
               className="text-xl font-bold text-gray-800 hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              LayerNLooms
+              <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-10'/>
             </Link>
             <button
               onClick={toggleMobileMenu}
@@ -190,6 +245,17 @@ const Navbar = () => {
           body {
             padding-bottom: 64px;
           }
+        }
+        
+        @media (min-width: 768px) {
+          body {
+            padding-bottom: 0;
+          }
+        }
+        
+        /* Smooth scrolling */
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
     </>

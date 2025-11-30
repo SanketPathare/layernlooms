@@ -1,4 +1,4 @@
-// components/Navbar.tsx
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -12,6 +12,7 @@ import {
   FiMenu,
   FiX
 } from 'react-icons/fi';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,8 +52,8 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center justify-between px-6 py-4 bg-white shadow-lg sticky top-0 z-50">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors">
-            LayerNLooms
+          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-primary transition-colors">
+            <Image src={}
           </Link>
         </div>
 
@@ -64,8 +65,8 @@ const Navbar = () => {
               href={item.href}
               className={`transition-colors duration-200 ${
                 activeSection === item.name
-                  ? 'text-blue-600 font-semibold'
-                  : 'text-gray-600 hover:text-blue-500'
+                  ? 'text-primary font-semibold'
+                  : 'text-textColor hover:text-primary'
               }`}
               onClick={() => handleNavClick(item.name)}
             >
@@ -78,7 +79,7 @@ const Navbar = () => {
         <div>
           <Link 
             href="/get-started"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200 font-medium"
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-colors duration-200 font-medium"
           >
             Get Started
           </Link>
@@ -96,8 +97,8 @@ const Navbar = () => {
                 href={item.href}
                 className={`flex flex-col items-center p-2 transition-colors duration-200 ${
                   activeSection === item.name
-                    ? 'text-blue-600'
-                    : 'text-gray-600'
+                    ? 'text-primary'
+                    : 'text-textColor'
                 }`}
                 onClick={() => handleNavClick(item.name)}
               >
@@ -112,14 +113,14 @@ const Navbar = () => {
       {/* Mobile Header (Top Bar) */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white shadow-md sticky top-0 z-40">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors">
+        <Link href="/" className="text-xl font-bold text-gray-800 hover:text-primary transition-colors">
           LayerNLooms
         </Link>
         
         {/* Hamburger Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+          className="p-2 text-textColor hover:text-primary transition-colors"
         >
           <FiMenu className="w-6 h-6" />
         </button>
@@ -132,14 +133,14 @@ const Navbar = () => {
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <Link 
               href="/" 
-              className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+              className="text-xl font-bold text-gray-800 hover:text-primary transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               LayerNLooms
             </Link>
             <button
               onClick={toggleMobileMenu}
-              className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+              className="p-2 text-textColor hover:text-primary transition-colors"
             >
               <FiX className="w-6 h-6" />
             </button>
@@ -155,8 +156,8 @@ const Navbar = () => {
                   href={item.href}
                   className={`flex items-center space-x-3 text-2xl ${
                     activeSection === item.name
-                      ? 'text-blue-600 font-semibold'
-                      : 'text-gray-600 hover:text-blue-500'
+                      ? 'text-primary font-semibold'
+                      : 'text-textColor hover:text-primary'
                   }`}
                   onClick={() => handleNavClick(item.name)}
                 >
@@ -171,7 +172,7 @@ const Navbar = () => {
           <div className="p-6 border-t border-gray-200">
             <Link 
               href="/get-started"
-              className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium text-lg text-center transition-colors"
+              className="block w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium text-lg text-center transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Started

@@ -136,48 +136,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Right Column - Sidebar */}
             <div className="lg:col-span-1">
-              {/* Pricing Card */}
-              {service.pricing && (
-                <div className="sticky top-8 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-4">
-                    <h3 className="text-xl font-bold text-white">Pricing Plans</h3>
-                  </div>
-                  <div className="p-6 space-y-4">
-                    {service.pricing.starter && (
-                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                        <span className="font-medium text-gray-900">Starter</span>
-                        <span className="text-2xl font-bold text-blue-600">
-                          {service.pricing.starter}
-                        </span>
-                      </div>
-                    )}
-                    {service.pricing.professional && (
-                      <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                        <span className="font-medium text-gray-900">Professional</span>
-                        <span className="text-2xl font-bold text-blue-600">
-                          {service.pricing.professional}
-                        </span>
-                      </div>
-                    )}
-                    {service.pricing.enterprise && (
-                      <div className="flex justify-between items-center py-2">
-                        <span className="font-medium text-gray-900">Enterprise</span>
-                        <span className="text-xl font-bold text-blue-600">
-                          {service.pricing.enterprise}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="px-6 pb-6">
-                    <Link
-                      href="/contact"
-                      className="block w-full text-center rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors"
-                    >
-                      Get Started
-                    </Link>
-                  </div>
-                </div>
-              )}
+         
+            
 
               {/* Contact Card */}
               <div className="mt-8 rounded-2xl bg-gray-50 p-6">
@@ -212,7 +172,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="mt-8">
             <Link
               href="/services"
-              className="inline-flex items-center rounded-full bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-700 transition-all duration-300"
+              className="inline-flex items-center rounded-full bg-gray-900 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-950 transition-all duration-300"
             >
               View All Services
               <ArrowRight className="ml-2 h-5 w-5" />

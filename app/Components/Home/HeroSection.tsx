@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaInfinity, FaArrowRight, FaEye } from "react-icons/fa";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function HeroSection() {
   return (
@@ -19,7 +20,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight mb-6">
           Weaving Digital Experiences with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
             Precision, Depth & AI
@@ -36,13 +37,13 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/start-project"
-            className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center flex items-center justify-center gap-2 group"
+            className="bg-primary text-white px-8 py-4 rounded-lg font-semibold  hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center flex items-center justify-center gap-2 group text-sm sm:text-base"
           >
             Start Your Project    
          </Link>
           <Link
             href="/our-work"
-            className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center gap-2 group"
+            className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center gap-2 group text-sm sm:text-base"
           >
             Explore Our Work
           </Link>

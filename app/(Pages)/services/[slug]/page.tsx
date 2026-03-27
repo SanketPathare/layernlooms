@@ -89,7 +89,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.benefits.map((benefit) => (
                       <div key={benefit} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="h-5 w-5 text-gray-900 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700">{benefit}</span>
                       </div>
                     ))}

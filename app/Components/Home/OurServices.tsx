@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ImageIcon } from "lucide-react";
+import { ArrowRight, Eye, ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
 const OurWork = [
   {
     title: "E-Commerce Platform",
     description: "High-performance shopping experience built with Next.js",
     tags: ["UI/UX", "Web Performance"],
-    href: "#",
+    href: "/services/web-development",
     image: "/E-Commerce.png",
   },
   {
@@ -50,15 +50,15 @@ const OurWork = [
   },
 ];
 
-export default function WorkShowcase() {
+export default function OurServices() {
   return (
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-center mb-2">
-            <h2 className="text-4xl sm:text-5xl  font-science font-bold text-foreground">
-              Our Work
+            <h2 className="text-4xl sm:text-5xl font-science font-bold text-foreground">
+              Our Services
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
           </div>
@@ -78,7 +78,7 @@ export default function WorkShowcase() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                 whileHover={{ y: -8 }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-gray-300"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-gray-300 hover:shadow-lg"
               >
                 {/* Image Container */}
                 <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
@@ -91,14 +91,15 @@ export default function WorkShowcase() {
                   />
 
                   {/* Overlay gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/0 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col p-6">
-                  {/* Title & arrow */}
+                <div className="flex flex-col p-6 flex-1">
+                  {/* Title */}
                   <div className="flex items-start justify-between">
-                    <h3 className="text-xl font-semibold text-gray-900  transition-colors">
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
                   </div>
@@ -118,6 +119,20 @@ export default function WorkShowcase() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* View More Button */}
+                  <div className="mt-6 pt-4 border-t border-gray-100">
+                    <Link href={project.href}>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer"
+                      >
+                        <span>View More</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </div>
               </motion.article>

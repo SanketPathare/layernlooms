@@ -106,7 +106,7 @@ export const services: Service[] = [
         description: "Leverage artificial intelligence for business transformation",
         longDescription: "Harness the power of artificial intelligence and machine learning to automate processes, gain insights, and create intelligent products that learn and adapt.",
         icon: "/icons/ai-ml.svg",
-        image: "/services/ai-ml.jpg",
+        image: "/AI.png",
         features: [
             "Machine Learning Models",
             "Natural Language Processing",
@@ -135,7 +135,7 @@ export const services: Service[] = [
         description: "Modern cloud architecture and DevOps services",
         longDescription: "Transform your infrastructure with cloud-native solutions. We help you leverage the full potential of cloud computing for scalability, reliability, and cost efficiency.",
         icon: "/icons/cloud.svg",
-        image: "/services/cloud-infrastructure.jpg",
+        image: "/Cloud.png",
         features: [
             "Cloud Migration",
             "DevOps Implementation",
@@ -164,7 +164,7 @@ export const services: Service[] = [
         description: "Design exceptional user experiences that delight",
         longDescription: "Our design team creates beautiful, intuitive interfaces that users love. We focus on user-centered design to ensure your product is both functional and aesthetically pleasing.",
         icon: "/icons/design.svg",
-        image: "/services/ui-ux-design.jpg",
+        image: "/ux-vs-ui-design@2x.png",
         features: [
             "User Research",
             "Wireframing & Prototyping",
@@ -193,7 +193,7 @@ export const services: Service[] = [
         description: "Accelerate growth with strategic digital marketing",
         longDescription: "Drive traffic, engagement, and conversions with our comprehensive digital marketing services. We use data-driven strategies to achieve measurable results.",
         icon: "/icons/marketing.svg",
-        image: "/services/digital-marketing.jpg",
+        image: "/Design.png",
         features: [
             "SEO Optimization",
             "Content Marketing",
@@ -213,6 +213,52 @@ export const services: Service[] = [
         technologies: [
             "Google Analytics", "SEMrush", "Ahrefs",
             "HubSpot", "Mailchimp", "Meta Ads Manager"
+        ]
+    },
+    {
+        slug: "saas-analytics",
+        title: "SaaS Analytics",
+        subtitle: "Real-time analytics and insights platform",
+        description: "Track, analyze, and optimize your SaaS product with powerful real-time insights",
+        longDescription: "Our SaaS analytics platform helps businesses monitor performance, understand user behavior, and make data-driven decisions. With real-time dashboards and advanced data visualization, you gain complete visibility into your product's growth and performance.",
+        icon: "/icons/analytics.svg",
+        image: "/SaaS.png",
+        features: [
+            "Real-time Data Tracking",
+            "Custom Dashboards",
+            "User Behavior Analytics",
+            "Revenue & KPI Monitoring",
+            "Funnel & Cohort Analysis",
+            "Third-party Integrations"
+        ],
+        benefits: [
+            "Better decision making",
+            "Improved user retention",
+            "Revenue growth insights",
+            "Real-time performance tracking",
+            "Scalable analytics infrastructure",
+            "Actionable data visualization"
+        ],
+        technologies: [
+            "Next.js", "React", "Node.js",
+            "PostgreSQL", "MongoDB",
+            "D3.js", "Chart.js",
+            "AWS", "Firebase"
+        ],
+        pricing: {
+            starter: "$3,000",
+            professional: "$10,000",
+            enterprise: "Custom"
+        },
+        faqs: [
+            {
+                question: "What kind of data can I track?",
+                answer: "You can track user behavior, revenue metrics, product usage, funnels, and custom events in real-time."
+            },
+            {
+                question: "Is it suitable for startups?",
+                answer: "Yes, our SaaS analytics solutions are scalable and perfect for startups as well as enterprise-level businesses."
+            }
         ]
     }
 ];

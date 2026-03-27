@@ -56,8 +56,8 @@ export default function WorkShowcase() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-science font-bold text-foreground">
+          <div className="text-center mb-2">
+            <h2 className="text-4xl sm:text-5xl  font-science font-bold text-foreground">
               Our Work
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />

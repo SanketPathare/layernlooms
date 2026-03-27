@@ -10,7 +10,7 @@ const OurWork = [
     title: "E-Commerce Platform",
     description: "High-performance shopping experience built with Next.js",
     tags: ["UI/UX", "Web Performance"],
-    href: "/E-Commerce.png",
+    href: "#",
     image: "/E-Commerce.png",
   },
   {
@@ -18,42 +18,42 @@ const OurWork = [
     description: "Secure financial management app with real-time updates",
     tags: ["Mobile", "iOS", "Android"],
     href: "#",
-    image: "/images/mobile-banking.jpg",
+    image: "/Mobile.png",
   },
   {
     title: "AI Chat Assistant",
     description: "Intelligent customer support powered by LLMs",
     tags: ["AI", "NLP", "Web"],
     href: "#",
-    image: "/images/ai-chat-assistant.jpg",
+    image: "/AI.png",
   },
   {
     title: "SaaS Analytics",
     description: "Real-time analytics and insights platform",
     tags: ["SaaS", "Dashboard", "Data Viz"],
     href: "#",
-    image: "/images/saas-analytics.jpg",
+    image: "/SaaS.png",
   },
   {
     title: "Cloud Infrastructure",
     description: "Enterprise-grade cloud solution",
     tags: ["Backend", "DevOps", "Scalable"],
     href: "#",
-    image: "/images/cloud-infrastructure.jpg",
+    image: "/Cloud.png",
   },
   {
     title: "Design System",
     description: "Comprehensive component library and design tokens",
     tags: ["UI Kit", "Components", "Documentation"],
     href: "#",
-    image: "/images/design-system.jpg",
+    image: "/Design.png",
   },
 ];
 
 export default function WorkShowcase() {
   return (
     <section className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-center mb-16">
@@ -78,7 +78,7 @@ export default function WorkShowcase() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                 whileHover={{ y: -8 }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-xl hover:border-gray-300"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-gray-300"
               >
                 {/* Image Container */}
                 <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
@@ -86,7 +86,7 @@ export default function WorkShowcase() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-fit"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
 

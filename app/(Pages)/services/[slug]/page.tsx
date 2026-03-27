@@ -149,7 +149,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
+                  className="mt-4 inline-flex items-center text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
                   Contact Our Experts
                   <ArrowRight className="ml-1 h-4 w-4" />

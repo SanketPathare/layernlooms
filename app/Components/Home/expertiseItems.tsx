@@ -32,7 +32,7 @@ export default function ExpertiseSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-science font-bold text-foreground">
+          <h2 className="text-4xl sm:text-5xl  font-science font-bold text-foreground">
             Our Expertise
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />

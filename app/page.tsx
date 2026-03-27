@@ -2,6 +2,7 @@ import ExpertiseSection from "./Components/Home/expertiseItems";
 import HeroSection from "./Components/Home/HeroSection";
 import OurWork from "./Components/Home/OurWork";
 import WhyChooseUs from "./Components/Home/WhyChooseUs";
+import ProcessSection from "./Components/Home/ProcessSection";
 
 export default function Home() {
   return (
@@ -10,6 +11,8 @@ export default function Home() {
     <ExpertiseSection/>
     <WhyChooseUs/>
     <OurWork/>
+      <ProcessSection />
+
 
     </div>
   );

@@ -7,13 +7,14 @@ import {
   Twitter,
   Linkedin,
   Github,
+  Facebook,
   Mail,
   Phone,
   MapPin,
   ArrowRight,
   Shield,
   FileText,
-  Cookie
+  Cookie,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -34,27 +35,31 @@ const footerData = {
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
-  legal: [
-    { name: "Privacy Policy", href: "/privacy", icon: Shield },
-    { name: "Terms of Service", href: "/terms", icon: FileText },
-    { name: "Cookie Policy", href: "/cookies", icon: Cookie },
-  ],
   contact: {
-    email: "hello@layernlooms.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Innovation Drive, San Francisco, CA 94105",
+    email: "info@layernlooms.com",
+    phone: "+91 9730516224",
+    address: "Pune, Maharashtra, India",
   },
   social: [
-    { name: "Twitter", href: "https://twitter.com/layernlooms", icon: Twitter, color: "hover:text-blue-400" },
-    { name: "LinkedIn", href: "https://linkedin.com/company/layernlooms", icon: Linkedin, color: "hover:text-blue-600" },
-    { name: "GitHub", href: "https://github.com/layernlooms", icon: Github, color: "hover:text-gray-700" },
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/company/layernlooms",
+      icon: Linkedin,
+      color: "hover:text-gray-700",
+    },
+    {
+      name: "Facebook",
+      href: "https://facebook.com/layernlooms",
+      icon: Facebook,
+      color: "hover:text-blue-500",
+    },
   ],
 };
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 export default function Footer() {
@@ -78,10 +83,9 @@ export default function Footer() {
       {/* Decorative Top Border */}
       <div className="absolute top-0 left-0 right-0 h-1" />
 
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-
           {/* Company Info Section */}
           <motion.div
             className="lg:col-span-2 xl:col-span-2"
@@ -91,8 +95,13 @@ export default function Footer() {
             variants={fadeInUp}
           >
             <Link href="/" className="inline-block">
-                     <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-20'/>
-         
+              <Image
+                src="/logo.jpg"
+                alt=""
+                width={200}
+                height={200}
+                className="w-auto h-20"
+              />
             </Link>
             <p className="mt-4 text-sm text-gray-600 max-w-md">
               {footerData.company.tagline}
@@ -102,14 +111,14 @@ export default function Footer() {
             <div className="mt-6 space-y-3">
               <a
                 href={`mailto:${footerData.contact.email}`}
-                className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors group"
+                className="flex items-center gap-3 text-sm text-gray-600 hover:text-gray-700 transition-colors group"
               >
                 <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
                 <span>{footerData.contact.email}</span>
               </a>
               <a
                 href={`tel:${footerData.contact.phone}`}
-                className="flex items-center gap-3 text-sm text-gray-600 hover:text-blue-600 transition-colors group"
+                className="flex items-center gap-3 text-sm text-gray-600 hover:text-gray-700 transition-colors group"
               >
                 <Phone className="h-4 w-4 group-hover:scale-110 transition-transform" />
                 <span>{footerData.contact.phone}</span>
@@ -143,7 +152,7 @@ export default function Footer() {
                 >
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-600 hover:text-gray-700 transition-colors flex items-center gap-1 group"
                   >
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                     <span className="group-hover:translate-x-1 transition-transform">
@@ -177,7 +186,7 @@ export default function Footer() {
                 >
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-600 hover:text-gray-700 transition-colors flex items-center gap-1 group"
                   >
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
                     <span className="group-hover:translate-x-1 transition-transform">
@@ -188,10 +197,7 @@ export default function Footer() {
               ))}
             </ul>
           </motion.div>
-
         </div>
-
-
 
         {/* Bottom Bar */}
         <motion.div
@@ -228,13 +234,13 @@ export default function Footer() {
             </div>
 
             {/* Back to Top Button */}
-            <button
+            {/* <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-sm text-gray-500 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+              className="text-sm text-gray-500 hover:text-gray-700 transition-colors flex items-center gap-1 group"
             >
               Back to Top
               <ArrowRight className="h-4 w-4 rotate-[-90deg] group-hover:-translate-y-1 transition-transform" />
-            </button>
+            </button> */}
           </div>
         </motion.div>
       </div>

@@ -13,33 +13,34 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
     return (
+        <Link href={`/services/${service.slug}`} className="w-full">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -8 }}
             className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-xl"
+            
         >
             {/* Image Container */}
-            <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+            <div className="relative h-48 w-full overflow-hidden">
                 <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-fit transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Content */}
             <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-semibold text-gray-900  transition-colors">
                         {service.title}
                     </h3>
                 </div>
 
-                <p className="mt-2 text-sm text-blue-600 font-medium">
+                <p className="mt-2 text-sm text-gray-700 font-medium">
                     {service.subtitle}
                 </p>
 
@@ -52,7 +53,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                     {service.features.slice(0, 2).map((feature) => (
                         <span
                             key={feature}
-                            className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700"
+                            className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700"
                         >
                             {feature}
                         </span>
@@ -67,12 +68,14 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                 {/* Link */}
                 <Link
                     href={`/services/${service.slug}`}
-                    className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group/link"
+                    className="mt-6 inline-flex items-center text-sm font-semibold text-gray-600 hover:text-gray-700 transition-colors group/link"
                 >
                     Learn More
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                 </Link>
             </div>
         </motion.div>
+        </Link>
+
     );
 }

@@ -167,21 +167,18 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Header (Top Bar) */}
-      <div className={`md:hidden flex items-center justify-between px-4 py-3 bg-white sticky top-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'shadow-md' : ''
-      }`}>
-        {/* Logo */}
+      <div className={`md:hidden flex items-center justify-between px-4 py-3 bg-white fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md' : ''
+        }`}>
         <Link href="/" className="text-xl font-bold text-gray-800 hover:text-primary transition-colors">
-          <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-12'/>
+          <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-12' />
         </Link>
-        
-        {/* Hamburger Menu Button */}
-        {/* <button
+
+        <button
           onClick={toggleMobileMenu}
           className="p-2 text-textColor hover:text-primary transition-colors"
         >
           <FiMenu className="w-6 h-6" />
-        </button> */}
+        </button>
       </div>
 
       {/* Mobile Full-screen Menu */}

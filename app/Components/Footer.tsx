@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Twitter,
@@ -75,11 +76,11 @@ export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
       {/* Decorative Top Border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
+      <div className="absolute top-0 left-0 right-0 h-1" />
 
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
 
           {/* Company Info Section */}
           <motion.div
@@ -90,9 +91,8 @@ export default function Footer() {
             variants={fadeInUp}
           >
             <Link href="/" className="inline-block">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {footerData.company.name}
-              </h2>
+                     <Image src="/logo.jpg" alt='' width={200} height={200} className='w-auto h-20'/>
+         
             </Link>
             <p className="mt-4 text-sm text-gray-600 max-w-md">
               {footerData.company.tagline}
@@ -189,37 +189,6 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Legal Links */}
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ delay: 0.3 }}
-          >
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
-              Legal
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerData.legal.map((item, index) => (
-                <motion.li
-                  key={item.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="text-sm text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-2 group"
-                  >
-                    <item.icon className="h-3 w-3" />
-                    <span>{item.name}</span>
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
 
 

@@ -28,7 +28,7 @@ export const services: Service[] = [
         description: "Build powerful web applications with cutting-edge technologies",
         longDescription: "Our web development services deliver high-performance, scalable, and secure web applications tailored to your business needs. We use the latest frameworks and best practices to ensure your web presence stands out.",
         icon: "/icons/web-dev.svg",
-        image: "/services/web-development.jpg",
+        image: "/E-Commerce.png",
         features: [
             "Custom Web Applications",
             "Responsive Design",
@@ -72,7 +72,7 @@ export const services: Service[] = [
         description: "Create engaging mobile experiences for iOS and Android",
         longDescription: "We develop high-quality mobile applications that deliver exceptional user experiences. Whether you need native iOS/Android apps or cross-platform solutions, we've got you covered.",
         icon: "/icons/mobile-dev.svg",
-        image: "/services/mobile-development.jpg",
+        image: "/Mobile.png",
         features: [
             "Native iOS Development (Swift)",
             "Native Android Development (Kotlin)",

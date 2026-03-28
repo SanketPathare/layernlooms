@@ -20,7 +20,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight mb-6">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-black leading-tight mb-6">
           Weaving Digital Experiences with{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
             Precision, Depth & AI

@@ -42,16 +42,6 @@ const fadeInUp = {
   transition: { duration: 0.5 },
 };
 
-  const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
-    <Image
-      src={isDark ? "/logodark.png" : "/logo.jpg"}
-      alt="Logo"
-      width={300}
-      height={300}
-      className={className}
-      loading='eager'
-    />
-  );
 export default function Footer() {
   const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
@@ -66,6 +56,18 @@ export default function Footer() {
       setTimeout(() => setSubscribed(false), 3000);
     }
   };
+
+  /* ─── Logo component that changes based on theme ──────── */
+  const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
+    <Image
+      src={isDark ? "/logodark.png" : "/logo.jpg"}
+      alt="Logo"
+      width={300}
+      height={300}
+      className={className}
+      loading='eager'
+    />
+  );
 
   /* ─── tokens ─── */
   const bg = isDark ? "bg-zinc-950" : "bg-white";
@@ -91,7 +93,7 @@ export default function Footer() {
             viewport={{ once: true }} variants={fadeInUp}
           >
             <Link href="/" className="inline-block">
-              <Image src="/logo.jpg" alt="Logo" width={200} height={200} className="w-auto h-20" />
+              <Logo className="w-auto h-20" />
             </Link>
             <p className={`mt-4 text-sm max-w-md transition-colors duration-300 ${bodyText}`}>
               {footerData.company.tagline}

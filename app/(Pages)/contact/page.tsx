@@ -1,182 +1,90 @@
 "use client";
 
-import { useState } from "react";
+import { useTheme } from "../../theme/Themecontext";
 
-const projectTypes = [
-    "Web Design",
-    "Web Development",
-    "Mobile App",
-    "UI/UX Design",
-    "Branding",
-    "E-Commerce",
-    "Consulting",
-    "Other",
-];
-
-const budgetRanges = [
-    "Under $1,000",
-    "$1,000 – $5,000",
-    "$5,000 – $15,000",
-    "$15,000 – $50,000",
-    "$50,000+",
-];
+import ContactForm from "../../Components/Contact/ContactForm";
+import { ContactCard, StepsCard, AvailabilityCard } from "../../Components/Contact/ContactCard";
 
 export default function ContactPage() {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "",
-        budget: "",
-        message: "",
-    });
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-    ) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = () => {
-        if (!form.name || !form.email || !form.message) return;
-        setSubmitted(true);
-    };
-
-    const inputBase =
-        "w-full bg-[#1a1a1a] border border-[#2e2e2e] rounded-xl px-5 py-4 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-gray-500 transition-colors duration-200";
+    const { isDark } = useTheme();
 
     return (
-        <main className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-zinc-950" : "bg-zinc-50"}`}>
+            <main className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-14 lg:py-20">
 
-                {/* ── LEFT ── */}
-                <div className="flex flex-col justify-between h-full gap-12">
-                    <div>
-                        <h1
-                            className="text-5xl md:text-6xl font-black leading-tight mb-6"
-                           
-                        >
-                            Let's Build Something <br /> Amazing
+                {/* ── Page header ── */}
+                <header className="mb-14 lg:mb-20">
+                    <p className={`text-[10px] tracking-[0.35em] uppercase mb-5 transition-colors duration-300 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}>
+                        Contact
+                    </p>
+                    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                        <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isDark ? "text-white" : "text-black"}`}>
+                            Let&apos;s Build
+                            <br />
+                            <span className={`transition-colors duration-300 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>
+                                Something Amazing
+                            </span>
                         </h1>
-                        <p className="text-gray-400 text-base leading-relaxed max-w-md">
-                            Have a project in mind? We'd love to hear about it. Fill out the form
-                            and our team will get back to you within 24 hours.
+                        <p className={`text-sm max-w-xs leading-relaxed sm:text-right transition-colors duration-300 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}>
+                            Fill out the form and our team will get back to you within 24 hours.
                         </p>
                     </div>
+                </header>
 
-                    <div className="flex flex-col gap-8">
-                        <div>
-                            <p className="text-gray-500 text-xs uppercase tracking-widest mb-1">Email</p>
-                            <a
+                {/* ── Grid ── */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-14">
+
+                    {/* Sidebar */}
+                    <aside className="lg:col-span-1 flex flex-col gap-5">
+
+                        {/* Contact info card */}
+                        <div className={`rounded-2xl border p-6 flex flex-col gap-5 transition-colors duration-300 ${isDark ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"}`}>
+                            <ContactCard
+                                icon={
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0-9.75 6.75L2.25 6.75" />
+                                    </svg>
+                                }
+                                label="Email"
+                                value="layernlooms@gmail.com"
                                 href="mailto:layernlooms@gmail.com"
-                                className="text-white font-bold text-base hover:text-gray-300 transition-colors"
-                            >
-                                layernlooms@gmail.com
-                            </a>
+                            />
+                            <div className={`h-px transition-colors duration-300 ${isDark ? "bg-zinc-800" : "bg-zinc-100"}`} />
+                            <ContactCard
+                                icon={
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                }
+                                label="Location"
+                                value="India, Maharashtra — Pune"
+                            />
                         </div>
-                        <div>
-                            <p className="text-gray-500 text-xs uppercase tracking-widest mb-1">Location</p>
-                            <p className="text-white font-bold text-base">India, Maharashtra-Pune</p>
-                        </div>
-                    </div>
 
-                    {/* decorative dots */}
-                    {/* <div className="hidden lg:grid grid-cols-6 gap-3 mt-4">
-                        {Array.from({ length: 24 }).map((_, i) => (
-                            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#2e2e2e]" />
-                        ))}
-                    </div> */}
+                        <AvailabilityCard />
+
+                        <div className="hidden lg:block">
+                            <StepsCard />
+                        </div>
+                    </aside>
+
+                    {/* Form */}
+                    <section className="lg:col-span-2">
+                        <ContactForm />
+                    </section>
                 </div>
 
-                {/* ── RIGHT — FORM ── */}
-                <div className="flex flex-col gap-4">
-                    {submitted ? (
-                        <div className="flex flex-col items-center justify-center h-full gap-6 py-24 text-center">
-                            <div className="w-16 h-16 rounded-full bg-[#1a1a1a] flex items-center justify-center">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                    <path d="M5 14.5L11 20.5L23 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-                            <h2 className="text-3xl font-black">
-                                Message Sent!
-                            </h2>
-                            <p className="text-gray-400 text-sm">We'll get back to you within 24 hours.</p>
-                            <button
-                                onClick={() => { setSubmitted(false); setForm({ name: "", email: "", company: "", projectType: "", budget: "", message: "" }); }}
-                                className="mt-4 text-xs text-gray-500 underline underline-offset-4 hover:text-white transition-colors"
-                            >
-                                Send another message
-                            </button>
-                        </div>
-                    ) : (
-                        <>
-                            <input
-                                name="name"
-                                value={form.name}
-                                onChange={handleChange}
-                                placeholder="Your Name"
-                                className={inputBase}
-                            />
-                            <input
-                                name="email"
-                                type="email"
-                                value={form.email}
-                                onChange={handleChange}
-                                placeholder="Email Address"
-                                className={inputBase}
-                            />
-                            <input
-                                name="company"
-                                value={form.company}
-                                onChange={handleChange}
-                                placeholder="Company"
-                                className={inputBase}
-                            />
-
-                            <select
-                                name="projectType"
-                                value={form.projectType}
-                                onChange={handleChange}
-                                className={`${inputBase} appearance-none cursor-pointer ${form.projectType === "" ? "text-gray-500" : "text-white"}`}
-                            >
-                                <option value="" disabled hidden>Select Project Type</option>
-                                {projectTypes.map((t) => (
-                                    <option key={t} value={t} className="bg-[#1a1a1a] text-white">{t}</option>
-                                ))}
-                            </select>
-
-                            <select
-                                name="budget"
-                                value={form.budget}
-                                onChange={handleChange}
-                                className={`${inputBase} appearance-none cursor-pointer ${form.budget === "" ? "text-gray-500" : "text-white"}`}
-                            >
-                                <option value="" disabled hidden>Budget Range</option>
-                                {budgetRanges.map((b) => (
-                                    <option key={b} value={b} className="bg-[#1a1a1a] text-white">{b}</option>
-                                ))}
-                            </select>
-
-                            <textarea
-                                name="message"
-                                value={form.message}
-                                onChange={handleChange}
-                                placeholder="Tell us about your project"
-                                rows={5}
-                                className={`${inputBase} resize-none`}
-                            />
-
-                            <button
-                                onClick={handleSubmit}
-                                className="w-full bg-white text-black font-bold text-sm py-4 rounded-xl hover:bg-gray-100 active:scale-[0.99] transition-all duration-200 mt-1 tracking-wide"
-                            >
-                                Send Message
-                            </button>
-                        </>
-                    )}
-                </div>
-            </div>
-        </main>
+                {/* ── Footer ── */}
+                <footer className={`mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-2 transition-colors duration-300 ${isDark ? "border-zinc-900" : "border-zinc-200"}`}>
+                    <p className={`text-xs tracking-widest uppercase transition-colors duration-300 ${isDark ? "text-zinc-700" : "text-zinc-400"}`}>
+                        Layern Looms © 2025
+                    </p>
+                    <p className={`text-xs transition-colors duration-300 ${isDark ? "text-zinc-700" : "text-zinc-400"}`}>
+                        India, Maharashtra — Pune
+                    </p>
+                </footer>
+            </main>
+        </div>
     );
 }

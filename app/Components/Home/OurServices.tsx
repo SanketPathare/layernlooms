@@ -120,16 +120,14 @@ export default function OurServices() {
 
                     {/* View More Button */}
                     <div className="mt-6 pt-4 border-t border-gray-100">
-                      <Link href={project.href}>
-                        <motion.button
-                          whileHover={{ x: 5 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="group/btn inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer"
-                        >
-                          <span>View More</span>
-                          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                        </motion.button>
-                      </Link>
+                      <motion.button
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer"
+                      >
+                        <span>View More</span>
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      </motion.button>
                     </div>
                   </div>
                 </motion.article>

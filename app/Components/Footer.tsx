@@ -3,20 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Twitter,
-  Linkedin,
-  Github,
-  Facebook,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-  Shield,
-  FileText,
-  Cookie,
-} from "lucide-react";
+import { Linkedin, Facebook, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "../theme/Themecontext";
+
 
 const footerData = {
   company: {
@@ -41,18 +31,8 @@ const footerData = {
     address: "Pune, Maharashtra, India",
   },
   social: [
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com/company/layernlooms",
-      icon: Linkedin,
-      color: "hover:text-gray-700",
-    },
-    {
-      name: "Facebook",
-      href: "https://facebook.com/layernlooms",
-      icon: Facebook,
-      color: "hover:text-blue-500",
-    },
+    { name: "LinkedIn", href: "https://linkedin.com/company/layernlooms", icon: Linkedin },
+    { name: "Facebook", href: "https://facebook.com/layernlooms", icon: Facebook },
   ],
 };
 
@@ -62,7 +42,18 @@ const fadeInUp = {
   transition: { duration: 0.5 },
 };
 
+  const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
+    <Image
+      src={isDark ? "/logodark.png" : "/logo.jpg"}
+      alt="Logo"
+      width={300}
+      height={300}
+      className={className}
+      loading='eager'
+    />
+  );
 export default function Footer() {
+  const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -70,75 +61,72 @@ export default function Footer() {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      // Handle newsletter subscription
-      console.log("Subscribed:", email);
       setSubscribed(true);
       setEmail("");
       setTimeout(() => setSubscribed(false), 3000);
     }
   };
 
-  return (
-    <footer className="relative bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
-      {/* Decorative Top Border */}
-      <div className="absolute top-0 left-0 right-0 h-1" />
+  /* ─── tokens ─── */
+  const bg = isDark ? "bg-zinc-950" : "bg-white";
+  const borderTop = isDark ? "border-zinc-800" : "border-zinc-200";
+  const headText = isDark ? "text-zinc-100" : "text-zinc-900";
+  const bodyText = isDark ? "text-zinc-400" : "text-zinc-600";
+  const labelText = isDark ? "text-zinc-300" : "text-zinc-700";
+  const hoverText = isDark ? "hover:text-white" : "hover:text-black";
+  const divider = isDark ? "border-zinc-800" : "border-zinc-200";
+  const iconColor = isDark ? "text-zinc-500" : "text-zinc-400";
 
+  return (
+    <footer className={`relative border-t transition-colors duration-300 ${bg} ${borderTop}`}>
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-          {/* Company Info Section */}
+
+        {/* Main grid */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* Company Info */}
           <motion.div
-            className="lg:col-span-2 xl:col-span-2"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
+            className="lg:col-span-2"
+            initial="initial" whileInView="animate"
+            viewport={{ once: true }} variants={fadeInUp}
           >
             <Link href="/" className="inline-block">
-              <Image
-                src="/logo.jpg"
-                alt=""
-                width={200}
-                height={200}
-                className="w-auto h-20"
-              />
+              <Image src="/logo.jpg" alt="Logo" width={200} height={200} className="w-auto h-20" />
             </Link>
-            <p className="mt-4 text-sm text-gray-600 max-w-md">
+            <p className={`mt-4 text-sm max-w-md transition-colors duration-300 ${bodyText}`}>
               {footerData.company.tagline}
             </p>
 
-            {/* Contact Info */}
+            {/* Contact info */}
             <div className="mt-6 space-y-3">
               <a
                 href={`mailto:${footerData.contact.email}`}
-                className="flex items-center gap-3 text-sm text-gray-600 hover:text-gray-700 transition-colors group"
+                className={`flex items-center gap-3 text-sm transition-colors group ${bodyText} ${hoverText}`}
               >
-                <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <Mail className={`h-4 w-4 group-hover:scale-110 transition-transform ${iconColor}`} />
                 <span>{footerData.contact.email}</span>
               </a>
               <a
                 href={`tel:${footerData.contact.phone}`}
-                className="flex items-center gap-3 text-sm text-gray-600 hover:text-gray-700 transition-colors group"
+                className={`flex items-center gap-3 text-sm transition-colors group ${bodyText} ${hoverText}`}
               >
-                <Phone className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                <Phone className={`h-4 w-4 group-hover:scale-110 transition-transform ${iconColor}`} />
                 <span>{footerData.contact.phone}</span>
               </a>
-              <div className="flex items-start gap-3 text-sm text-gray-600">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <div className={`flex items-start gap-3 text-sm ${bodyText}`}>
+                <MapPin className={`h-4 w-4 mt-0.5 flex-shrink-0 ${iconColor}`} />
                 <span>{footerData.contact.address}</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Services Links */}
+          {/* Services */}
           <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
+            initial="initial" whileInView="animate"
+            viewport={{ once: true }} variants={fadeInUp}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+            <h3 className={`text-sm font-semibold uppercase tracking-wider transition-colors duration-300 ${labelText}`}>
               Services
             </h3>
             <ul className="mt-4 space-y-3">
@@ -152,27 +140,23 @@ export default function Footer() {
                 >
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-gray-700 transition-colors flex items-center gap-1 group"
+                    className={`text-sm flex items-center gap-1 group transition-colors duration-200 ${bodyText} ${hoverText}`}
                   >
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {item.name}
-                    </span>
+                    <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
                   </Link>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Company Links */}
+          {/* Company */}
           <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={fadeInUp}
+            initial="initial" whileInView="animate"
+            viewport={{ once: true }} variants={fadeInUp}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
+            <h3 className={`text-sm font-semibold uppercase tracking-wider transition-colors duration-300 ${labelText}`}>
               Company
             </h3>
             <ul className="mt-4 space-y-3">
@@ -186,12 +170,10 @@ export default function Footer() {
                 >
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-gray-700 transition-colors flex items-center gap-1 group"
+                    className={`text-sm flex items-center gap-1 group transition-colors duration-200 ${bodyText} ${hoverText}`}
                   >
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {item.name}
-                    </span>
+                    <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
                   </Link>
                 </motion.li>
               ))}
@@ -199,21 +181,20 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom bar */}
         <motion.div
-          className="mt-12 pt-8 border-t border-gray-200"
+          className={`mt-12 pt-8 border-t transition-colors duration-300 ${divider}`}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <div className="text-sm text-gray-500 text-center md:text-left">
+            <div className={`text-sm text-center md:text-left transition-colors duration-300 ${bodyText}`}>
               © {currentYear} {footerData.company.name}. All rights reserved.
             </div>
 
-            {/* Social Links */}
+            {/* Social icons */}
             <div className="flex items-center gap-4">
               {footerData.social.map((social, index) => (
                 <motion.a
@@ -221,8 +202,8 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-gray-500 transition-all duration-300 hover:scale-110 ${social.color}`}
                   aria-label={social.name}
+                  className={`transition-all duration-300 hover:scale-110 ${iconColor} ${hoverText}`}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -232,15 +213,6 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-
-            {/* Back to Top Button */}
-            {/* <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-sm text-gray-500 hover:text-gray-700 transition-colors flex items-center gap-1 group"
-            >
-              Back to Top
-              <ArrowRight className="h-4 w-4 rotate-[-90deg] group-hover:-translate-y-1 transition-transform" />
-            </button> */}
           </div>
         </motion.div>
       </div>

@@ -101,20 +101,20 @@ export default function Footer() {
 
             {/* Contact info */}
             <div className="mt-6 space-y-3">
-              <a
+              <Link
                 href={`mailto:${footerData.contact.email}`}
                 className={`flex items-center gap-3 text-sm transition-colors group ${bodyText} ${hoverText}`}
               >
                 <Mail className={`h-4 w-4 group-hover:scale-110 transition-transform ${iconColor}`} />
                 <span>{footerData.contact.email}</span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href={`tel:${footerData.contact.phone}`}
                 className={`flex items-center gap-3 text-sm transition-colors group ${bodyText} ${hoverText}`}
               >
                 <Phone className={`h-4 w-4 group-hover:scale-110 transition-transform ${iconColor}`} />
                 <span>{footerData.contact.phone}</span>
-              </a>
+              </Link>
               <div className={`flex items-start gap-3 text-sm ${bodyText}`}>
                 <MapPin className={`h-4 w-4 mt-0.5 flex-shrink-0 ${iconColor}`} />
                 <span>{footerData.contact.address}</span>

@@ -28,7 +28,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subheading */}
-        <p className="text-lg sm:text-xl lg:text-2xl text-textColor mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl  text-textColor mb-12 max-w-3xl mx-auto leading-relaxed">
           Web • Mobile • AI • Custom Software — Built exclusively for brands
           that want excellence.
         </p>

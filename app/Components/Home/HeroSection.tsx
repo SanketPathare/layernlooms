@@ -11,8 +11,8 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <FaInfinity className="text-gray-300 text-[400px] sm:text-[500px] lg:text-[600px] xl:text-[700px] animate-pulse" />
         </div>
-        
-      
+
+
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white/80"></div>
       </div>
@@ -39,8 +39,8 @@ export default function HeroSection() {
             href="/start-project"
             className="bg-primary text-white px-8 py-4 rounded-lg font-semibold  hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto text-center flex items-center justify-center gap-2 group text-sm sm:text-base"
           >
-            Start Your Project    
-         </Link>
+            Start Your Project
+          </Link>
           <Link
             href="/our-work"
             className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center gap-2 group text-sm sm:text-base"
@@ -51,7 +51,7 @@ export default function HeroSection() {
 
       </div>
 
-  
+
     </section>
   );
 }

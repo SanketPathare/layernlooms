@@ -74,7 +74,7 @@ export default function EngagementModels() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#f0f2f5] py-20 px-6">
+    <section ref={sectionRef} className="w-full bg-[#f0f2f5] py-20 px-6 my-10  rounded-3xl">
       {/* Header */}
       <div className="mx-auto max-w-2xl text-center mb-14">
         <div className="text-center ">

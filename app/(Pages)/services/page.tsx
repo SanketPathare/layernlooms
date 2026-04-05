@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { services } from "../../data/services";
-import ServiceCard from "../../Components/services/ServiceCard";
+import ServiceCard from "../../components/services/ServiceCard";
 
 
 export default function ServicesPage() {

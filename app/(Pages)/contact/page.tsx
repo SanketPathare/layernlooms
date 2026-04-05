@@ -1,7 +1,7 @@
 "use client";
 
-import ContactForm from "../../Components/Contact/ContactForm";
-import { ContactCard, StepsCard, AvailabilityCard } from "../../Components/Contact/ContactCard";
+import ContactForm from "../../components/Contact/ContactForm";
+import { ContactCard, StepsCard, AvailabilityCard } from "../../components/Contact/ContactCard";
 
 export default function ContactPage() {
     return (

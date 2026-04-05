@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
                   key={index}
                   className="flex items-center gap-4 group hover:translate-x-2 transition-transform duration-300"
                 >
-                  <CheckCircle className="w-7 h-7 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-7 h-7 text-primary shrink-0" />
                   <span className="text-gray-700 text-lg font-medium group-hover:text-gray-900">
                     {feature}
                   </span>

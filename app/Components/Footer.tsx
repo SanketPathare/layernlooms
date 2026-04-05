@@ -115,7 +115,7 @@ export default function Footer() {
                 <span>{footerData.contact.phone}</span>
               </Link>
               <div className={`flex items-start gap-3 text-sm ${bodyText}`}>
-                <MapPin className={`h-4 w-4 mt-0.5 flex-shrink-0 ${iconColor}`} />
+                <MapPin className={`h-4 w-4 mt-0.5 shrink-0 ${iconColor}`} />
                 <span>{footerData.contact.address}</span>
               </div>
             </div>

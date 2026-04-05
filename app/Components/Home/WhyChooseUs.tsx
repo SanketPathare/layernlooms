@@ -15,19 +15,25 @@ export default function WhyChooseUs() {
   return (
     <section className="py-16 px-6 ">
       <div className="max-w-7xl mx-auto">
+
+          {/* Header */}
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="text-center mb-2">
+            <h2 className="text-4xl sm:text-5xl font-science font-bold text-foreground">
+              Why Choose Us
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
+          </div>
+          <p className="mt-4 text-lg leading-8 text-gray-600 mb-10">
+               We blend technical excellence with creative vision to deliver
+                solutions that not only work but inspire.
+          </p>
+        </div>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+
           {/* Left Content */}
           <div className="space-y-8 order-2 lg:order-1">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold  leading-tight">
-                Why Choose <span className="text-primary">LayerNLooms</span>?
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl">
-                We blend technical excellence with creative vision to deliver
-                solutions that not only work but inspire.
-              </p>
-            </div>
-
             {/* Features List */}
             <div className="space-y-5">
               {features.map((feature, index) => (

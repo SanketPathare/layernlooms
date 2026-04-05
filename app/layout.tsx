@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased `} >
+      <body className={`${inter.className} ${inter.variable} antialiased `} >
           <Navbar />
           <div className="max-w-7xl mx-auto mb-10">
             {children}

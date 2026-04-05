@@ -10,4 +10,5 @@
   --color-primary:#171717;
   --color-secondary:#262626 ;
   --color-textColor:#374151;
+  --font-inter: var(--font-inter);
 }

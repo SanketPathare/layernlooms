@@ -52,7 +52,7 @@ const OurWork = [
 
 export default function OurServices() {
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section className="bg-white py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">

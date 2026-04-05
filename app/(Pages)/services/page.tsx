@@ -39,7 +39,7 @@ export default function ServicesPage() {
           initial="hidden"
           animate={isHeroInView ? "visible" : "hidden"}
         >
-          <h1 className={`text-6xl md:text-7xl font-black tracking-tight leading-none mb-4 transition-colors duration-300 text-black`}>
+          <h1 className={`text-4xl md:text-6xl font-black tracking-tight leading-none mb-4 transition-colors duration-300 text-black`}>
             Our Services
           </h1>
           <motion.div
@@ -99,7 +99,7 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section
         ref={ctaRef}
-        className="py-20 transition-colors duration-300 bg-black text-white"
+        className="py-20 transition-colors duration-300 bg-black text-white rounded-3xl "
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <motion.div
@@ -135,7 +135,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href="/contact"
-                  className="inline-block rounded-full px-8 py-3 text-base font-semibold shadow-sm transition-all duration-300 bg-white text-black hover:bg-gray-100"
+                  className="inline-block rounded-full px-8 py-3 text-sm font-semibold shadow-sm transition-all duration-300 bg-white text-black hover:bg-gray-100"
                 >
                   Contact Us Today
                 </Link>
@@ -146,7 +146,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href="/contact"
-                  className="inline-block text-base font-semibold border-2 rounded-full px-6 py-3 transition-all duration-300 text-white border-white hover:bg-white hover:text-black"
+                  className="inline-block text-sm font-semibold border-2 rounded-full px-6 py-3 transition-all duration-300 text-white border-white hover:bg-white hover:text-black"
                 >
                   View Our Work{" "}
                   <motion.span

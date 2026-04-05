@@ -102,12 +102,12 @@ export default function OurServices() {
                     </div>
 
                     {/* Description */}
-                    <p className="mt-3 text-sm leading-6 text-gray-600 h-12la overflow-hidden">
+                    <p className="mt-2 text-sm leading-6 text-gray-600 h-12 overflow-hidden ">
                       {project.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="mt-4 flex flex-wrap gap-2">
+                     <div className="mt-2 flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
@@ -116,10 +116,10 @@ export default function OurServices() {
                           {tag}
                         </span>
                       ))}
-                    </div>
+                    </div> 
 
                     {/* View More Button */}
-                    <div className="mt-6 pt-4 border-t border-gray-100">
+                    <div className="mt-2 pt-4 border-t border-gray-100">
                       <motion.button
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.98 }}

@@ -11,20 +11,19 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-    theme: "dark",
+    theme: "light",
     toggleTheme: () => { },
-    isDark: true,
+    isDark: false,
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-    const [theme, setTheme] = useState<Theme>("dark");
-
-    const toggleTheme = () =>
-        setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    const theme: Theme = "light";
+    const isDark = false;
+    const toggleTheme = () => { };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === "dark" }}>
-            <div className={theme === "dark" ? "dark" : ""}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
+            <div className="">
                 {children}
             </div>
         </ThemeContext.Provider>

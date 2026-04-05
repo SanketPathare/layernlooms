@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { useTheme } from "@/app/theme/Themecontext";
 
 
 const plans = [
@@ -43,11 +42,11 @@ const faqs = [
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
-    const { isDark } = useTheme();
+    const isDark = false;
     const [open, setOpen] = useState(false);
     return (
         <motion.div
-            className={`border-b py-5 cursor-pointer transition-colors duration-300 ${isDark ? "border-zinc-800" : "border-zinc-200"}`}
+            className={`border-b py-5 cursor-pointer transition-colors duration-300 border-zinc-200`}
             onClick={() => setOpen(!open)}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,9 +54,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.5 }}
         >
             <div className="flex justify-between items-center gap-4">
-                <span className={`text-base font-bold transition-colors duration-300 ${isDark ? "text-white" : "text-black"}`}>{q}</span>
+                <span className={`text-base font-bold transition-colors duration-300 text-black`}>{q}</span>
                 <motion.span
-                    className={`text-xl transition-colors duration-300 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
+                    className={`text-xl transition-colors duration-300 text-zinc-400`}
                     animate={{ rotate: open ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
@@ -70,14 +69,14 @@ function FAQItem({ q, a }: { q: string; a: string }) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
             >
-                <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>{a}</p>
+                <p className={`text-sm leading-relaxed transition-colors duration-300 text-zinc-500`}>{a}</p>
             </motion.div>
         </motion.div>
     );
 }
 
 export default function PricingPage() {
-    const { isDark } = useTheme();
+    const isDark = false;
 
     const heroRef = useRef(null);
     const cardsRef = useRef(null);
@@ -98,14 +97,14 @@ export default function PricingPage() {
         visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" } }),
     };
 
-    /* ─── tokens ─── */
-    const pageBg = isDark ? "bg-zinc-950" : "bg-zinc-50";
-    const cardBg = isDark ? "bg-zinc-900" : "bg-white";
-    const cardBorder = isDark ? "border-zinc-800" : "border-zinc-200";
-    const headText = isDark ? "text-white" : "text-black";
-    const subText = isDark ? "text-zinc-400" : "text-zinc-500";
-    const trustBg = isDark ? "bg-zinc-900" : "bg-white";
-    const divider = isDark ? "bg-zinc-700" : "bg-black";
+    /* ─── tokens (Light Mode Only) ─── */
+    const pageBg = "bg-zinc-50";
+    const cardBg = "bg-white";
+    const cardBorder = "border-zinc-200";
+    const headText = "text-black";
+    const subText = "text-zinc-500";
+    const trustBg = "bg-white";
+    const divider = "bg-black";
 
     return (
         <main className={`w-full min-h-screen transition-colors duration-300 ${pageBg}`}>
@@ -139,9 +138,7 @@ export default function PricingPage() {
                             initial="hidden"
                             animate={isCardsInView ? "visible" : "hidden"}
                             className={`rounded-2xl p-8 flex flex-col gap-6 transition-colors duration-300 ${plan.featured
-                                    ? isDark
-                                        ? "bg-white text-black scale-105 shadow-2xl z-10"
-                                        : "bg-black text-white scale-105 shadow-2xl z-10"
+                                    ? "bg-black text-white scale-105 shadow-2xl z-10"
                                     : `${cardBg} border ${cardBorder} shadow-sm hover:shadow-lg`
                                 }`}
                             whileHover={!plan.featured ? { y: -4, transition: { duration: 0.2 } } : {}}
@@ -149,7 +146,7 @@ export default function PricingPage() {
                             <div>
                                 {plan.featured && (
                                     <motion.span
-                                        className={`inline-block text-xs font-bold tracking-widest uppercase mb-3 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
+                                        className={`inline-block text-xs font-bold tracking-widest uppercase mb-3 text-zinc-400`}
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={isCardsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                         transition={{ duration: 0.4, delay: i * 0.1 + 0.2 }}
@@ -157,14 +154,8 @@ export default function PricingPage() {
                                         Most Popular
                                     </motion.span>
                                 )}
-                                <h2 className={`text-2xl font-black mb-2 ${plan.featured
-                                        ? isDark ? "text-black" : "text-white"
-                                        : headText
-                                    }`}>{plan.title}</h2>
-                                <p className={`text-sm leading-relaxed ${plan.featured
-                                        ? isDark ? "text-zinc-500" : "text-zinc-400"
-                                        : subText
-                                    }`}>{plan.description}</p>
+                                <h2 className={`text-2xl font-black mb-2 ${plan.featured ? "text-white" : headText}`}>{plan.title}</h2>
+                                <p className={`text-sm leading-relaxed ${plan.featured ? "text-zinc-400" : subText}`}>{plan.description}</p>
                             </div>
 
                             <ul className="space-y-3 flex-1">
@@ -176,28 +167,21 @@ export default function PricingPage() {
                                         animate={isCardsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                         transition={{ duration: 0.3, delay: i * 0.1 + idx * 0.05 + 0.3 }}
                                     >
-                                        {/* check */}
+                                        {/* check icon */}
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 mt-0.5">
                                             <path d="M3 8.5L6.5 12L13 5"
-                                                stroke={plan.featured ? (isDark ? "#71717a" : "#a1a1aa") : (isDark ? "#a1a1aa" : "#52525b")}
+                                                stroke={plan.featured ? "#a1a1aa" : "#52525b"}
                                                 strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
-                                        <span className={`text-sm font-medium ${plan.featured
-                                                ? isDark ? "text-black" : "text-white"
-                                                : isDark ? "text-zinc-300" : "text-zinc-700"
-                                            }`}>{f}</span>
+                                        <span className={`text-sm font-medium ${plan.featured ? "text-white" : "text-zinc-700"}`}>{f}</span>
                                     </motion.li>
                                 ))}
                             </ul>
 
                             <motion.button
                                 className={`w-full py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 ${plan.featured
-                                        ? isDark
-                                            ? "bg-black text-white hover:bg-zinc-800"
-                                            : "bg-white text-black hover:bg-zinc-100"
-                                        : isDark
-                                            ? "bg-white text-black hover:bg-zinc-200"
-                                            : "bg-black text-white hover:bg-zinc-800"
+                                        ? "bg-white text-black hover:bg-zinc-100"
+                                        : "bg-black text-white hover:bg-zinc-800"
                                     }`}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -259,22 +243,20 @@ export default function PricingPage() {
             {/* ── CTA BANNER ── */}
             <section className="py-16 px-6">
                 <motion.div
-                    className={`max-w-4xl mx-auto rounded-3xl px-10 py-14 text-center transition-colors duration-300 ${isDark ? "bg-white" : "bg-black"
-                        }`}
+                    className="max-w-4xl mx-auto rounded-3xl px-10 py-14 text-center transition-colors duration-300 bg-black"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className={`text-4xl font-black mb-3 ${isDark ? "text-black" : "text-white"}`}>
+                    <h2 className="text-4xl font-black mb-3 text-white">
                         Not sure which plan fits?
                     </h2>
-                    <p className={`text-base mb-8 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}>
+                    <p className="text-base mb-8 text-zinc-400">
                         Book a free 30-minute consultation and we'll find the right fit together.
                     </p>
                     <motion.button
-                        className={`px-8 py-3 rounded-xl font-bold text-sm transition-colors duration-200 ${isDark ? "bg-black text-white hover:bg-zinc-800" : "bg-white text-black hover:bg-zinc-100"
-                            }`}
+                        className="px-8 py-3 rounded-xl font-bold text-sm transition-colors duration-200 bg-white text-black hover:bg-zinc-100"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { useTheme } from "../theme/Themecontext";
 
 
 const footerData = {
@@ -43,7 +42,7 @@ const fadeInUp = {
 };
 
 export default function Footer() {
-  const { isDark } = useTheme();
+  const isDark = false;
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -60,7 +59,7 @@ export default function Footer() {
   /* ─── Logo component that changes based on theme ──────── */
   const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
     <Image
-      src={isDark ? "/logodark.png" : "/logo.jpg"}
+      src="/logo.jpg"
       alt="Logo"
       width={300}
       height={300}
@@ -70,14 +69,14 @@ export default function Footer() {
   );
 
   /* ─── tokens ─── */
-  const bg = isDark ? "bg-zinc-950" : "bg-white";
-  const borderTop = isDark ? "border-zinc-800" : "border-zinc-200";
-  const headText = isDark ? "text-zinc-100" : "text-zinc-900";
-  const bodyText = isDark ? "text-zinc-400" : "text-zinc-600";
-  const labelText = isDark ? "text-zinc-300" : "text-zinc-700";
-  const hoverText = isDark ? "hover:text-white" : "hover:text-black";
-  const divider = isDark ? "border-zinc-800" : "border-zinc-200";
-  const iconColor = isDark ? "text-zinc-500" : "text-zinc-400";
+  const bg = "bg-white";
+  const borderTop = "border-zinc-200";
+  const headText = "text-zinc-900";
+  const bodyText = "text-zinc-600";
+  const labelText = "text-zinc-700";
+  const hoverText = "hover:text-black";
+  const divider = "border-zinc-200";
+  const iconColor = "text-zinc-400";
 
   return (
     <footer className={`relative border-t transition-colors duration-300 ${bg} ${borderTop}`}>

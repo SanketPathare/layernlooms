@@ -9,17 +9,13 @@ import {
   FiMail,
   FiMenu,
   FiX,
-  FiSun,
-  FiMoon,
 } from 'react-icons/fi';
 import Image from 'next/image';
 import { FaServicestack } from 'react-icons/fa';
-import { useTheme } from '../theme/Themecontext';
 
 
 const Navbar = () => {
-  const { isDark, toggleTheme } = useTheme();
-
+  const isDark = false;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Services');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,23 +51,18 @@ const Navbar = () => {
   }, []);
 
   /* ─── theme tokens ─────────────────────────────────── */
-  const navBg = isDark ? 'bg-zinc-950' : 'bg-white';
-  const navBorder = isDark ? 'border-zinc-800' : 'border-zinc-200';
-  const linkMuted = isDark ? 'text-zinc-400' : 'text-zinc-500';
-  const linkHover = isDark ? 'hover:text-white' : 'hover:text-primary';
-  const linkActive = isDark ? 'text-white font-semibold' : 'text-primary font-semibold';
-  const headText = isDark ? 'text-zinc-100' : 'text-zinc-900';
-  const toggleCls = isDark
-    ? 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white'
-    : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200 hover:text-black';
-  const ctaCls = isDark
-    ? 'bg-white text-black hover:bg-zinc-200'
-    : 'bg-primary text-white hover:bg-primary/90';
+  const navBg = 'bg-white';
+  const navBorder = 'border-zinc-200';
+  const linkMuted = 'text-zinc-500';
+  const linkHover = 'hover:text-primary';
+  const linkActive = 'text-primary font-semibold';
+  const headText = 'text-zinc-900';
+  const ctaCls = 'bg-primary text-white hover:bg-primary/90';
 
   /* ─── Logo component that changes based on theme ──────── */
   const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
     <Image
-      src={isDark ? "/logodark.png" : "/logo.jpg"}
+      src="/logo.jpg"
       alt="Logo"
       width={300}
       height={300}
@@ -79,25 +70,6 @@ const Navbar = () => {
       loading='eager'
     />
   );
-
-  /* ─── toggle button (reused in several places) ──────── */
-  const ThemeBtn = ({ size = 'sm' }: { size?: 'sm' | 'full' }) =>
-    size === 'full' ? (
-      <button
-        onClick={toggleTheme}
-        className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-medium transition-all duration-200 ${navBorder} ${linkMuted} ${linkHover}`}
-      >
-        {isDark ? <><FiSun className="w-4 h-4" /> Switch to Light Mode</> : <><FiMoon className="w-4 h-4" /> Switch to Dark Mode</>}
-      </button>
-    ) : (
-      <button
-        onClick={toggleTheme}
-        aria-label="Toggle theme"
-        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${toggleCls}`}
-      >
-        {isDark ? <FiSun className="w-4 h-4" /> : <FiMoon className="w-4 h-4" />}
-      </button>
-    );
 
   return (
     <>
@@ -130,9 +102,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right: toggle + CTA */}
+        {/* Right: CTA */}
         <div className="flex items-center gap-3">
-          <ThemeBtn />
           <Link href="/get-started" className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${ctaCls}`}>
             Get Started
           </Link>
@@ -154,7 +125,7 @@ const Navbar = () => {
               href={href}
               onClick={() => handleNavClick(name)}
               className={`flex flex-col items-center p-2 min-w-[52px] rounded-xl transition-all duration-200 ${activeSection === name
-                ? `${isDark ? 'text-white' : 'text-primary'} scale-105`
+                ? `text-primary scale-105`
                 : `${linkMuted} ${linkHover}`
                 }`}
             >
@@ -162,19 +133,6 @@ const Navbar = () => {
               <span className="text-xs font-medium">{name}</span>
             </Link>
           ))}
-
-          {/* divider */}
-          <div className={`w-px h-8 ${isDark ? 'bg-zinc-700' : 'bg-zinc-200'}`} />
-
-          {/* toggle inside floating nav */}
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className={`flex flex-col items-center p-2 min-w-[52px] rounded-xl transition-all duration-200 ${toggleCls}`}
-          >
-            {isDark ? <FiSun className="w-5 h-5 mb-1" /> : <FiMoon className="w-5 h-5 mb-1" />}
-            <span className="text-xs font-medium">{isDark ? 'Light' : 'Dark'}</span>
-          </button>
         </div>
       </nav>
 
@@ -191,7 +149,6 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <ThemeBtn />
           <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
             <FiMenu className="w-6 h-6" />
           </button>
@@ -210,7 +167,7 @@ const Navbar = () => {
               key={name}
               href={href}
               onClick={() => handleNavClick(name)}
-              className={`flex flex-col items-center p-2 transition-colors duration-200 ${activeSection === name ? (isDark ? 'text-white' : 'text-primary') : linkMuted
+              className={`flex flex-col items-center p-2 transition-colors duration-200 ${activeSection === name ? 'text-primary' : linkMuted
                 }`}
             >
               <Icon className="w-5 h-5" />
@@ -253,7 +210,6 @@ const Navbar = () => {
 
           {/* bottom actions */}
           <div className={`p-6 border-t ${navBorder} flex flex-col gap-3`}>
-            <ThemeBtn size="full" />
             <Link
               href="/get-started"
               onClick={() => setIsMobileMenuOpen(false)}

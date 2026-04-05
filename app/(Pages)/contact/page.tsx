@@ -1,31 +1,27 @@
 "use client";
 
-import { useTheme } from "../../theme/Themecontext";
-
 import ContactForm from "../../Components/Contact/ContactForm";
 import { ContactCard, StepsCard, AvailabilityCard } from "../../Components/Contact/ContactCard";
 
 export default function ContactPage() {
-    const { isDark } = useTheme();
-
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${isDark ? "bg-zinc-950" : "bg-zinc-50"}`}>
+        <div className="min-h-screen transition-colors duration-300 bg-zinc-50">
             <main className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-14 lg:py-20">
 
                 {/* ── Page header ── */}
                 <header className="mb-14 lg:mb-20">
-                    <p className={`text-[10px] tracking-[0.35em] uppercase mb-5 transition-colors duration-300 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}>
+                    <p className="text-[10px] tracking-[0.35em] uppercase mb-5 transition-colors duration-300 text-zinc-400">
                         Contact
                     </p>
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                        <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isDark ? "text-white" : "text-black"}`}>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight transition-colors duration-300 text-black">
                             Let&apos;s Build
                             <br />
-                            <span className={`transition-colors duration-300 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>
+                            <span className="transition-colors duration-300 text-zinc-500">
                                 Something Amazing
                             </span>
                         </h1>
-                        <p className={`text-sm max-w-xs leading-relaxed sm:text-right transition-colors duration-300 ${isDark ? "text-zinc-500" : "text-zinc-400"}`}>
+                        <p className="text-sm max-w-xs leading-relaxed sm:text-right transition-colors duration-300 text-zinc-400">
                             Fill out the form and our team will get back to you within 24 hours.
                         </p>
                     </div>
@@ -38,7 +34,7 @@ export default function ContactPage() {
                     <aside className="lg:col-span-1 flex flex-col gap-5">
 
                         {/* Contact info card */}
-                        <div className={`rounded-2xl border p-6 flex flex-col gap-5 transition-colors duration-300 ${isDark ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-200"}`}>
+                        <div className="rounded-2xl border p-6 flex flex-col gap-5 transition-colors duration-300 bg-white border-zinc-200">
                             <ContactCard
                                 icon={
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -49,7 +45,7 @@ export default function ContactPage() {
                                 value="layernlooms@gmail.com"
                                 href="mailto:layernlooms@gmail.com"
                             />
-                            <div className={`h-px transition-colors duration-300 ${isDark ? "bg-zinc-800" : "bg-zinc-100"}`} />
+                            <div className="h-px transition-colors duration-300 bg-zinc-100" />
                             <ContactCard
                                 icon={
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -76,11 +72,11 @@ export default function ContactPage() {
                 </div>
 
                 {/* ── Footer ── */}
-                <footer className={`mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-2 transition-colors duration-300 ${isDark ? "border-zinc-900" : "border-zinc-200"}`}>
-                    <p className={`text-xs tracking-widest uppercase transition-colors duration-300 ${isDark ? "text-zinc-700" : "text-zinc-400"}`}>
+                <footer className="mt-16 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-2 transition-colors duration-300 border-zinc-200">
+                    <p className="text-xs tracking-widest uppercase transition-colors duration-300 text-zinc-400">
                         Layern Looms © 2025
                     </p>
-                    <p className={`text-xs transition-colors duration-300 ${isDark ? "text-zinc-700" : "text-zinc-400"}`}>
+                    <p className="text-xs transition-colors duration-300 text-zinc-400">
                         India, Maharashtra — Pune
                     </p>
                 </footer>

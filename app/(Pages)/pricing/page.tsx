@@ -112,7 +112,7 @@ export default function PricingPage() {
             {/* ── HERO ── */}
             <section ref={heroRef} className="pt-24 pb-4 text-center px-6">
                 <motion.div variants={containerVariants} initial="hidden" animate={isHeroInView ? "visible" : "hidden"}>
-                    <h1 className={`text-6xl md:text-7xl font-black tracking-tight leading-none mb-4 transition-colors duration-300 ${headText}`}>
+                    <h1 className={`text-4xl md:text-6xl font-bold tracking-tight leading-none mb-4 transition-colors duration-300 ${headText}`}>
                         Engagement Models
                     </h1>
                     <motion.div

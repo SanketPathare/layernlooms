@@ -107,7 +107,7 @@ export default function PricingPage() {
     const divider = "bg-black";
 
     return (
-        <main className={`w-full min-h-screen transition-colors duration-300 ${pageBg}`}>
+        <main className={`w-full min-h-screen transition-colors duration-300`}>
 
             {/* ── HERO ── */}
             <section ref={heroRef} className="pt-24 pb-4 text-center px-6">

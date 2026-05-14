@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   FiHome,
   FiBriefcase,
@@ -15,9 +16,9 @@ import { FaServicestack } from 'react-icons/fa';
 
 
 const Navbar = () => {
+  const pathname = usePathname();
   const isDark = false;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('Services');
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showDesktopBottomNav, setShowDesktopBottomNav] = useState(false);
@@ -31,7 +32,6 @@ const Navbar = () => {
   ];
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v);
-  const handleNavClick = (name: string) => { setActiveSection(name); setIsMobileMenuOpen(false); };
 
   useEffect(() => {
     const onScroll = () => {
@@ -89,17 +89,20 @@ const Navbar = () => {
 
         {/* Links */}
         <div className="flex items-center space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => handleNavClick(item.name)}
-              className={`text-sm transition-colors duration-200 ${activeSection === item.name ? linkActive : `${linkMuted} ${linkHover}`
-                }`}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`text-sm transition-colors duration-200 ${isActive ? linkActive : `${linkMuted} ${linkHover}`
+                  }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Right: CTA */}
@@ -119,20 +122,23 @@ const Navbar = () => {
           ${showDesktopBottomNav ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0 pointer-events-none'}`}
       >
         <div className="flex items-center px-4 py-3 space-x-4">
-          {navItems.map(({ name, icon: Icon, href }) => (
-            <Link
-              key={name}
-              href={href}
-              onClick={() => handleNavClick(name)}
-              className={`flex flex-col items-center p-2 min-w-[52px] rounded-xl transition-all duration-200 ${activeSection === name
-                ? `text-primary scale-105`
-                : `${linkMuted} ${linkHover}`
-                }`}
-            >
-              <Icon className="w-5 h-5 mb-1" />
-              <span className="text-xs font-medium">{name}</span>
-            </Link>
-          ))}
+          {navItems.map(({ name, icon: Icon, href }) => {
+            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+            return (
+              <Link
+                key={name}
+                href={href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex flex-col items-center p-2 min-w-[52px] rounded-xl transition-all duration-200 ${isActive
+                  ? `text-primary scale-105`
+                  : `${linkMuted} ${linkHover}`
+                  }`}
+              >
+                <Icon className="w-5 h-5 mb-1" />
+                <span className="text-xs font-medium">{name}</span>
+              </Link>
+            );
+          })}
         </div>
       </nav>
 
@@ -162,18 +168,21 @@ const Navbar = () => {
         className={`md:hidden fixed bottom-0 left-0 right-0 border-t z-50 transition-colors duration-300 ${navBg} ${navBorder}`}
       >
         <div className="flex justify-around items-center py-2">
-          {navItems.map(({ name, icon: Icon, href }) => (
-            <Link
-              key={name}
-              href={href}
-              onClick={() => handleNavClick(name)}
-              className={`flex flex-col items-center p-2 transition-colors duration-200 ${activeSection === name ? 'text-primary' : linkMuted
-                }`}
-            >
-              <Icon className="w-5 h-5" />
-              <span className="text-xs mt-1">{name}</span>
-            </Link>
-          ))}
+          {navItems.map(({ name, icon: Icon, href }) => {
+            const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+            return (
+              <Link
+                key={name}
+                href={href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex flex-col items-center p-2 transition-colors duration-200 ${isActive ? 'text-primary' : linkMuted
+                  }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-xs mt-1">{name}</span>
+              </Link>
+            );
+          })}
         </div>
       </nav>
 
@@ -194,18 +203,21 @@ const Navbar = () => {
 
           {/* links */}
           <div className="flex-1 flex flex-col justify-center items-center space-y-8">
-            {navItems.map(({ name, icon: Icon, href }) => (
-              <Link
-                key={name}
-                href={href}
-                onClick={() => handleNavClick(name)}
-                className={`flex items-center space-x-3 text-2xl transition-colors duration-200 ${activeSection === name ? linkActive : `${linkMuted} ${linkHover}`
-                  }`}
-              >
-                <Icon className="w-6 h-6" />
-                <span className={headText}>{name}</span>
-              </Link>
-            ))}
+            {navItems.map(({ name, icon: Icon, href }) => {
+              const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
+              return (
+                <Link
+                  key={name}
+                  href={href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center space-x-3 text-2xl transition-colors duration-200 ${isActive ? linkActive : `${linkMuted} ${linkHover}`
+                    }`}
+                >
+                  <Icon className="w-6 h-6" />
+                  <span className={headText}>{name}</span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* bottom actions */}

@@ -9,6 +9,7 @@ import Link from "next/link";
 const socialLinks = [
     { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/layernlooms", color: "hover:text-[#0077b5]" },
     { name: "Facebook", icon: Facebook, href: "https://facebook.com/layernlooms", color: "hover:text-[#1877f2]" },
+    { name: "Twitter", icon: Twitter, href: "#", color: "hover:text-[#1da1f2]" },
     { name: "Instagram", icon: Instagram, href: "#", color: "hover:text-[#e4405f]" },
 ];
 

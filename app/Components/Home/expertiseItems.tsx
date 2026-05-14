@@ -55,7 +55,7 @@ export default function ExpertiseSection() {
               <div
                 className="relative z-10 mb-6 inline-flex items-center justify-center 
                             w-16 h-16 rounded-xl bg-primary/10 text-primary 
-                            group-hover:bg-primary group-hover:text-white 
+                            group-hover:bg-primary group-hover:text-background 
                             transition-all duration-300"
               >
                 {item.icon}

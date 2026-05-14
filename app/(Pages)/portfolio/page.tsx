@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, Filter } from "lucide-react";
@@ -11,40 +11,56 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  
+  const heroRef = useRef(null);
+  const projectsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  const isHeroInView = useInView(heroRef, { once: true, amount: 0.1 });
+  const isProjectsInView = useInView(projectsRef, { once: true, amount: 0.1 });
+  const isCtaInView = useInView(ctaRef, { once: true, amount: 0.1 });
 
   const filteredProjects = activeCategory === "All"
     ? projects
     : projects.filter((p) => p.category === activeCategory);
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-10 pb-20 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-black mb-6"
-          >
-            Our Work
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-zinc-600 max-w-2xl mx-auto mb-12"
-          >
+      <section
+        ref={heroRef}
+        className="pt-24 pb-4 text-center px-6 transition-colors duration-300 bg-white"
+      >
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isHeroInView ? "visible" : "hidden"}
+        >
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none mb-4 transition-colors duration-300 text-black">
+            Our Portfolio
+          </h1>
+          <motion.div
+            className="mx-auto w-20 h-1 rounded-full mb-6 transition-colors duration-300 bg-black"
+            initial={{ width: 0 }}
+            animate={isHeroInView ? { width: 80 } : { width: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+          <p className="text-lg max-w-xl mx-auto transition-colors duration-300 text-gray-600 mb-12">
             Explore our latest projects where design meets engineering excellence.
             We build digital products that drive results.
-          </motion.p>
+          </p>
 
           {/* Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3"
-          >
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
                 key={category}
@@ -58,29 +74,45 @@ export default function PortfolioPage() {
                 {category}
               </button>
             ))}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Projects Grid */}
-      <section className="pb-32 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section
+        ref={projectsRef}
+        className="py-24 transition-colors duration-300 bg-white px-6 lg:px-8"
+      >
+        <div className="mx-auto max-w-7xl">
           <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+            initial="hidden"
+            animate={isProjectsInView ? "visible" : "hidden"}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.slug}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  whileHover={{ y: -8, transition: { duration: 0.2 } }}
                   className="group relative"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-zinc-100">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-zinc-100 border border-zinc-200 shadow-sm">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -100,7 +132,7 @@ export default function PortfolioPage() {
 
                   <div className="mt-6">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                      <span className="text-xs font-bold uppercase tracking-widest text-black">
                         {project.category}
                       </span>
                       <span className="w-1 h-1 bg-zinc-300 rounded-full" />
@@ -108,7 +140,7 @@ export default function PortfolioPage() {
                         {project.year}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-black mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-2xl font-bold text-black mb-2 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-zinc-600 leading-relaxed">
@@ -122,23 +154,58 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-24 bg-zinc-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-8">
-            Have a project in mind?
-          </h2>
-          <p className="text-lg text-zinc-600 mb-10">
-            We're always looking for new challenges and interesting partners.
-            Let's build something amazing together.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-lg font-semibold text-white shadow-xl hover:bg-zinc-800 transition-all duration-300"
+      {/* CTA Section */}
+      <section
+        ref={ctaRef}
+        className="py-20 transition-colors duration-300 bg-black text-white rounded-3xl mx-6 mb-20"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isCtaInView ? "visible" : "hidden"}
           >
-            Start a Conversation
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
+            <motion.h2
+              className="text-3xl font-bold tracking-tight sm:text-4xl text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Ready to build something iconic?
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-300 max-w-xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Let&apos;s collaborate to turn your vision into a digital reality.
+              Our team is ready to scale your ideas.
+            </motion.p>
+            <motion.div
+              className="mt-8 flex items-center justify-center gap-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/contact"
+                  className="inline-block rounded-full px-8 py-3 text-sm font-semibold shadow-sm transition-all duration-300 bg-white text-black hover:bg-gray-100"
+                >
+                  Contact Us Today
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/contact"
+                  className="inline-block text-sm font-semibold border-2 rounded-full px-6 py-3 transition-all duration-300 text-white border-white hover:bg-white hover:text-black"
+                >
+                  Start a Project <ArrowRight className="inline-block ml-1 w-4 h-4" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

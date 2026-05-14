@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, Check } from "lucide-react";
 import { getAllServices, getServiceBySlug, Service } from "@/app/data/services";
-import ServiceHero from "../../../components/services/ServiceHero";
+import ServiceHero from "../../../Components/services/ServiceHero";
 
 interface ServicePageProps {
   params: Promise<{

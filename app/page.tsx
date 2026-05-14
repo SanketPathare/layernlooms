@@ -1,10 +1,10 @@
 "use client";
-import HeroSection from "./components/Home/HeroSection";
-import WhyChooseUs from "./components/Home/WhyChooseUs";
-import ProcessSection from "./components/Home/ProcessSection";
-import EngagementModels from "./components/Home/EngagementModels";
-import ExpertiseSection from "./components/Home/ExpertiseItems";
-import OurServices from "./components/Home/OurServices";
+import HeroSection from "./Components/Home/HeroSection";
+import WhyChooseUs from "./Components/Home/WhyChooseUs";
+import ProcessSection from "./Components/Home/ProcessSection";
+import EngagementModels from "./Components/Home/EngagementModels";
+import ExpertiseSection from "./Components/Home/ExpertiseItems";
+import OurServices from "./Components/Home/OurServices";
 
 export default function Home() {
   return (

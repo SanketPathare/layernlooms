@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ContactForm from "../../components/Contact/ContactForm";
-import { ContactCard, StepsCard, AvailabilityCard } from "../../components/Contact/ContactCard";
+import ContactForm from "../../Components/Contact/ContactForm";
+import { ContactCard, StepsCard, AvailabilityCard } from "../../Components/Contact/ContactCard";
 
 export default function ContactPage() {
     const containerVariants = {

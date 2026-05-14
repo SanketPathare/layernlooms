@@ -69,12 +69,12 @@ export default function ContactForm() {
     return (
         <form 
             onSubmit={handleSubmit}
-            className="w-full relative overflow-hidden rounded-[2.5rem] border border-black/[0.05] bg-white/80 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-2xl shadow-zinc-200/50 flex flex-col gap-8 group transition-all duration-500"
+            className="w-full relative overflow-hidden rounded-[2.5rem] border border-border bg-card/80 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-2xl shadow-primary/5 flex flex-col gap-8 group transition-all duration-500"
         >
             {/* Form Header Area */}
             <div className="flex flex-col gap-2 mb-2">
-                <h2 className="text-2xl font-bold tracking-tight">Project Brief</h2>
-                <p className="text-sm text-zinc-500">Let&apos;s define the scope of your digital revolution.</p>
+                <h2 className="text-2xl font-bold tracking-tight text-foreground">Project Brief</h2>
+                <p className="text-sm text-textMuted">Let&apos;s define the scope of your digital revolution.</p>
             </div>
 
             {/* Name + Email Row */}
@@ -93,8 +93,8 @@ export default function ContactForm() {
                     <label
                         htmlFor="projectType"
                         className={`absolute left-4 transition-all duration-200 pointer-events-none z-10 ${focused === "projectType" || form.projectType
-                                ? "top-2 text-[10px] tracking-widest uppercase font-bold text-black"
-                                : "top-1/2 -translate-y-1/2 text-sm text-zinc-400 group-hover:text-zinc-500"
+                                ? "top-2 text-[10px] tracking-widest uppercase font-bold text-primary"
+                                : "top-1/2 -translate-y-1/2 text-sm text-textMuted/60 group-hover:text-textMuted"
                             }`}
                     >
                         Project Specialty
@@ -106,17 +106,17 @@ export default function ContactForm() {
                         onChange={handleChange}
                         onFocus={() => setFocused("projectType")}
                         onBlur={() => setFocused(null)}
-                        className={`w-full border rounded-2xl px-4 pt-7 pb-3 text-sm appearance-none cursor-pointer outline-none transition-all duration-200 bg-zinc-50/50 text-black ${focused === "projectType" ? "border-black ring-1 ring-black bg-white" : "border-zinc-100 hover:border-zinc-200"}`}
+                        className={`w-full border rounded-2xl px-4 pt-7 pb-3 text-sm appearance-none cursor-pointer outline-none transition-all duration-200 bg-secondary/30 text-foreground ${focused === "projectType" ? "border-primary ring-1 ring-primary bg-background" : "border-border hover:border-textMuted/30"}`}
                     >
                         <option value="" disabled hidden />
                         {projectTypes.map((p) => (
-                            <option key={p} value={p} className="bg-white">
+                            <option key={p} value={p} className="bg-background text-foreground">
                                 {p}
                             </option>
                         ))}
-                        <option value="__add_new__" className="font-bold text-black">+ Other Specialty</option>
+                        <option value="__add_new__" className="font-bold text-foreground">+ Other Specialty</option>
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-textMuted">
                         <Plus className={`w-4 h-4 transition-transform duration-300 ${focused === "projectType" ? "rotate-45" : ""}`} />
                     </div>
                 </div>
@@ -131,17 +131,17 @@ export default function ContactForm() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="p-4 rounded-2xl bg-zinc-50 border border-zinc-100"
+                        className="p-4 rounded-2xl bg-secondary border border-border"
                     >
                         <div className="flex gap-3 items-center">
                             <div className="flex-1">
                                 <FloatInput label="Describe Specialty" name="customType" type="text" value={customType} focused={focused} onChange={(e) => setCustomType(e.target.value)} onFocus={() => setFocused("customType")} onBlur={() => setFocused(null)} />
                             </div>
                             <div className="flex gap-2">
-                                <button type="button" onClick={handleCancelCustom} className="p-3 rounded-xl bg-white border border-zinc-200 text-zinc-400 hover:text-black transition-colors">
+                                <button type="button" onClick={handleCancelCustom} className="p-3 rounded-xl bg-card border border-border text-textMuted hover:text-foreground transition-colors">
                                     <X className="w-5 h-5" />
                                 </button>
-                                <button type="button" onClick={handleAddCustomType} className="px-6 rounded-xl bg-black text-white font-bold text-xs uppercase tracking-widest hover:bg-zinc-800 transition-colors">
+                                <button type="button" onClick={handleAddCustomType} className="px-6 rounded-xl bg-primary text-background font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-colors">
                                     Add
                                 </button>
                             </div>
@@ -155,8 +155,8 @@ export default function ContactForm() {
                 <label
                     htmlFor="message"
                     className={`absolute left-4 transition-all duration-200 pointer-events-none z-10 ${focused === "message" || form.message
-                            ? "top-2 text-[10px] tracking-widest uppercase font-bold text-black"
-                            : "top-5 text-sm text-zinc-400 group-hover:text-zinc-500"
+                            ? "top-2 text-[10px] tracking-widest uppercase font-bold text-primary"
+                            : "top-5 text-sm text-textMuted/60 group-hover:text-textMuted"
                         }`}
                 >
                     Project Details
@@ -169,7 +169,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     onFocus={() => setFocused("message")}
                     onBlur={() => setFocused(null)}
-                    className={`w-full border rounded-3xl px-4 pt-10 pb-4 text-sm resize-none outline-none transition-all duration-200 bg-zinc-50/50 text-black ${focused === "message" ? "border-black ring-1 ring-black bg-white shadow-sm" : "border-zinc-100 hover:border-zinc-300"}`}
+                    className={`w-full border rounded-3xl px-4 pt-10 pb-4 text-sm resize-none outline-none transition-all duration-200 bg-secondary/30 text-foreground ${focused === "message" ? "border-primary ring-1 ring-primary bg-background shadow-sm" : "border-border hover:border-textMuted/30"}`}
                     placeholder={(focused === "message" || form.message) ? "Tell us about your mission, goals and timelines..." : ""}
                 />
             </div>
@@ -182,7 +182,7 @@ export default function ContactForm() {
                     disabled={submitted}
                     className={`group relative overflow-hidden w-full py-5 rounded-2xl font-bold text-xs tracking-[.25em] uppercase transition-all duration-500 ${submitted
                             ? "bg-emerald-500 text-white shadow-emerald-200"
-                            : "bg-black text-white hover:bg-zinc-800 shadow-xl shadow-black/10"
+                            : "bg-primary text-background hover:opacity-90 shadow-xl shadow-primary/10"
                         }`}
                 >
                     <span className="relative z-10 flex items-center justify-center gap-2">
@@ -205,7 +205,7 @@ export default function ContactForm() {
 
                 <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-zinc-400">Response in &lt; 24h</p>
+                    <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-textMuted">Response in &lt; 24h</p>
                 </div>
             </div>
         </form>

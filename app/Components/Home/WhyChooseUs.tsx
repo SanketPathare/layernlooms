@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 px-6 ">
+    <section className="py-16 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
           </div>
-          <p className="mt-4 text-lg leading-8 text-gray-600 mb-10">
+          <p className="mt-4 text-lg leading-8 text-textMuted mb-10">
                We blend technical excellence with creative vision to deliver
                 solutions that not only work but inspire.
           </p>
@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
                   className="flex items-center gap-4 group hover:translate-x-2 transition-transform duration-300"
                 >
                   <CheckCircle className="w-7 h-7 text-primary shrink-0" />
-                  <span className="text-gray-700 text-lg font-medium group-hover:text-gray-900">
+                  <span className="text-textMuted text-lg font-medium group-hover:text-foreground transition-colors">
                     {feature}
                   </span>
                 </div>
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
 
           {/* Right Image/Card */}
           <div className="order-1 lg:order-2 relative ">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl shadow-neutral-500">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/5 dark:shadow-primary/2">
               {/* Main Dark Card */}
               <div className=" bg-gradient-to-br from-neutral-600 via-neutral-950 to-neutral-600 p-16 md:p-24 lg:p-32 aspect-video ">
                 <div className="flex flex-col items-center justify-center h-full text-center">

@@ -56,7 +56,7 @@ export default function ProcessSection() {
     return (
         <section
             ref={sectionRef}
-            className="w-full bg-white py-20 px-6 "
+            className="w-full bg-background py-20 px-6 "
            
         >
             {/* Header */}
@@ -68,7 +68,7 @@ export default function ProcessSection() {
                     </h2>
                     <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
                 </div>
-                <p className="mt-4 text-lg leading-8 text-gray-600">
+                <p className="mt-4 text-lg leading-8 text-textMuted">
                     Proven methodology that ensures excellence at every stage.
 
                 </p>
@@ -77,7 +77,7 @@ export default function ProcessSection() {
             {/* Steps */}
             <div className="relative max-w-7xl mx-auto">
                 {/* Connecting line */}
-                <div className="hidden md:block absolute top-[38px] left-[calc(100%/12)] right-[calc(100%/12)] h-px bg-black z-0" />
+                <div className="hidden md:block absolute top-[38px] left-[calc(100%/12)] right-[calc(100%/12)] h-px bg-border z-0" />
 
                 <div className="grid grid-cols-2 md:grid-cols-6 gap-y-10 gap-x-4 relative z-10">
                     {steps.map((step, index) => {
@@ -97,9 +97,9 @@ export default function ProcessSection() {
                             >
                                 {/* Circle */}
                                 <div
-                                    className={`w-[76px] h-[76px] rounded-full flex items-center justify-center text-white font-black text-lg mb-4 transition-all duration-300 ${isActive
-                                            ? "bg-black scale-110 shadow-2xl"
-                                            : "bg-black hover:scale-105"
+                                    className={`w-[76px] h-[76px] rounded-full flex items-center justify-center text-background font-black text-lg mb-4 transition-all duration-300 ${isActive
+                                            ? "bg-primary scale-110 shadow-xl shadow-primary/20"
+                                            : "bg-primary/80 hover:bg-primary hover:scale-105"
                                         }`}
                                     
                                 >
@@ -108,7 +108,7 @@ export default function ProcessSection() {
 
                                 {/* Title */}
                                 <h3
-                                    className={`font-semibold text-sm lg:text-base leading-snug mb-2 transition-colors duration-200 ${isActive ? "text-black" : "text-black"
+                                    className={`font-semibold text-sm lg:text-base leading-snug mb-2 transition-colors duration-200 ${isActive ? "text-primary" : "text-foreground"
                                         }`}
                                     
                                 >
@@ -117,7 +117,7 @@ export default function ProcessSection() {
 
                                 {/* Description */}
                                 <p
-                                    className={`text-xs text-gray-500 leading-relaxed transition-all duration-300 max-w-fit ${isActive ? "text-gray-700" : ""
+                                    className={`text-xs text-textMuted leading-relaxed transition-all duration-300 max-w-fit ${isActive ? "text-foreground" : ""
                                         }`}
                                 >
                                     {step.description}

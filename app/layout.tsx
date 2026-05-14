@@ -14,19 +14,23 @@ export const metadata: Metadata = {
   description: "",
 };
 
+import { ThemeProvider } from "./providers";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${inter.variable} antialiased `} >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} ${inter.variable} antialiased`} >
+        <ThemeProvider>
           <Navbar />
           <div className="max-w-7xl mx-auto mb-10">
             {children}
           </div>
           <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

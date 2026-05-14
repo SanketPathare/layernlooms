@@ -15,9 +15,11 @@ import Image from 'next/image';
 import { FaServicestack } from 'react-icons/fa';
 
 
+import { ThemeToggle } from './ThemeToggle';
+
+
 const Navbar = () => {
   const pathname = usePathname();
-  const isDark = false;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -51,13 +53,13 @@ const Navbar = () => {
   }, []);
 
   /* ─── theme tokens ─────────────────────────────────── */
-  const navBg = 'bg-white';
-  const navBorder = 'border-zinc-200';
-  const linkMuted = 'text-zinc-500';
+  const navBg = 'bg-background/80 backdrop-blur-md';
+  const navBorder = 'border-border';
+  const linkMuted = 'text-textMuted';
   const linkHover = 'hover:text-primary';
   const linkActive = 'text-primary font-semibold';
-  const headText = 'text-zinc-900';
-  const ctaCls = 'bg-primary text-white hover:bg-primary/90';
+  const headText = 'text-foreground';
+  const ctaCls = 'bg-primary text-background hover:opacity-90';
 
   /* ─── Logo component that changes based on theme ──────── */
   const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
@@ -66,7 +68,7 @@ const Navbar = () => {
       alt="Logo"
       width={300}
       height={300}
-      className={className}
+      className={`${className} dark:invert`}
       loading='eager'
     />
   );
@@ -105,8 +107,9 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right: CTA */}
+        {/* Right: CTA & Theme Toggle */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link href="/get-started" className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${ctaCls}`}>
             Get Started
           </Link>
@@ -155,6 +158,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
             <FiMenu className="w-6 h-6" />
           </button>
@@ -196,9 +200,12 @@ const Navbar = () => {
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
               <Logo className="w-auto h-10" />
             </Link>
-            <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
-              <FiX className="w-6 h-6" />
-            </button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
+                <FiX className="w-6 h-6" />
+              </button>
+            </div>
           </div>
 
           {/* links */}

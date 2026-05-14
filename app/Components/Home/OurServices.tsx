@@ -52,7 +52,7 @@ const OurWork = [
 
 export default function OurServices() {
   return (
-    <section className="bg-white py-10">
+    <section className="bg-background py-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -62,7 +62,7 @@ export default function OurServices() {
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mt-4 rounded-full" />
           </div>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
+          <p className="mt-4 text-lg leading-8 text-textMuted">
             A showcase of our projects that demonstrate our commitment to
             excellence and innovation.
           </p>
@@ -79,10 +79,10 @@ export default function OurServices() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                   whileHover={{ y: -8 }}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-gray-300 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:border-primary/20 hover:shadow-lg dark:hover:shadow-primary/5"
                 >
                   {/* Image Container */}
-                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -96,13 +96,13 @@ export default function OurServices() {
                   <div className="flex flex-col p-6 flex-1 ">
                     {/* Title */}
                     <div className="flex items-start justify-between">
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
                         {project.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="mt-2 text-sm leading-6 text-gray-600 h-12 overflow-hidden ">
+                    <p className="mt-2 text-sm leading-6 text-textMuted h-12 overflow-hidden ">
                       {project.description}
                     </p>
 
@@ -111,7 +111,7 @@ export default function OurServices() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700"
+                          className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-textMuted"
                         >
                           {tag}
                         </span>
@@ -119,7 +119,7 @@ export default function OurServices() {
                     </div> 
 
                     {/* View More Button */}
-                    <div className="mt-2 pt-4 border-t border-gray-100">
+                    <div className="mt-2 pt-4 border-t border-border">
                       <motion.button
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.98 }}

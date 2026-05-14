@@ -42,11 +42,10 @@ const faqs = [
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
-    const isDark = false;
     const [open, setOpen] = useState(false);
     return (
         <motion.div
-            className={`border-b py-5 cursor-pointer transition-colors duration-300 border-zinc-200`}
+            className="border-b py-5 cursor-pointer transition-colors duration-300 border-border"
             onClick={() => setOpen(!open)}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,9 +53,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.5 }}
         >
             <div className="flex justify-between items-center gap-4">
-                <span className={`text-base font-bold transition-colors duration-300 text-black`}>{q}</span>
+                <span className="text-base font-bold transition-colors duration-300 text-foreground">{q}</span>
                 <motion.span
-                    className={`text-xl transition-colors duration-300 text-zinc-400`}
+                    className="text-xl transition-colors duration-300 text-textMuted"
                     animate={{ rotate: open ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
@@ -69,15 +68,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
             >
-                <p className={`text-sm leading-relaxed transition-colors duration-300 text-zinc-500`}>{a}</p>
+                <p className="text-sm leading-relaxed transition-colors duration-300 text-textMuted">{a}</p>
             </motion.div>
         </motion.div>
     );
 }
 
 export default function PricingPage() {
-    const isDark = false;
-
     const heroRef = useRef(null);
     const cardsRef = useRef(null);
     const trustRef = useRef(null);
@@ -97,31 +94,22 @@ export default function PricingPage() {
         visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" } }),
     };
 
-    /* ─── tokens (Light Mode Only) ─── */
-    const pageBg = "bg-zinc-50";
-    const cardBg = "bg-white";
-    const cardBorder = "border-zinc-200";
-    const headText = "text-black";
-    const subText = "text-zinc-500";
-    const trustBg = "bg-white";
-    const divider = "bg-black";
-
     return (
-        <main className={`w-full min-h-screen transition-colors duration-300`}>
+        <main className="w-full min-h-screen transition-colors duration-300 bg-background">
 
             {/* ── HERO ── */}
             <section ref={heroRef} className="pt-24 pb-4 text-center px-6">
                 <motion.div variants={containerVariants} initial="hidden" animate={isHeroInView ? "visible" : "hidden"}>
-                    <h1 className={`text-4xl md:text-6xl font-bold tracking-tight leading-none mb-4 transition-colors duration-300 ${headText}`}>
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-none mb-4 transition-colors duration-300 text-foreground">
                         Engagement Models
                     </h1>
                     <motion.div
-                        className={`mx-auto h-1 rounded-full mb-6 ${divider}`}
+                        className="mx-auto h-1 rounded-full mb-6 bg-primary"
                         initial={{ width: 0 }}
                         animate={isHeroInView ? { width: 80 } : { width: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     />
-                    <p className={`text-lg max-w-xl mx-auto transition-colors duration-300 ${subText}`}>
+                    <p className="text-lg max-w-xl mx-auto transition-colors duration-300 text-textMuted">
                         Choose the model that works best for your project needs.
                     </p>
                 </motion.div>
@@ -138,15 +126,15 @@ export default function PricingPage() {
                             initial="hidden"
                             animate={isCardsInView ? "visible" : "hidden"}
                             className={`rounded-2xl p-8 flex flex-col gap-6 transition-colors duration-300 ${plan.featured
-                                    ? "bg-black text-white scale-105 shadow-2xl z-10"
-                                    : `${cardBg} border ${cardBorder} shadow-sm hover:shadow-lg`
+                                    ? "bg-primary text-background scale-105 shadow-2xl z-10"
+                                    : "bg-card border border-border shadow-sm hover:shadow-lg text-foreground"
                                 }`}
                             whileHover={!plan.featured ? { y: -4, transition: { duration: 0.2 } } : {}}
                         >
                             <div>
                                 {plan.featured && (
                                     <motion.span
-                                        className={`inline-block text-xs font-bold tracking-widest uppercase mb-3 text-zinc-400`}
+                                        className="inline-block text-xs font-bold tracking-widest uppercase mb-3 opacity-60"
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={isCardsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                         transition={{ duration: 0.4, delay: i * 0.1 + 0.2 }}
@@ -154,8 +142,8 @@ export default function PricingPage() {
                                         Most Popular
                                     </motion.span>
                                 )}
-                                <h2 className={`text-2xl font-black mb-2 ${plan.featured ? "text-white" : headText}`}>{plan.title}</h2>
-                                <p className={`text-sm leading-relaxed ${plan.featured ? "text-zinc-400" : subText}`}>{plan.description}</p>
+                                <h2 className={`text-2xl font-black mb-2 ${plan.featured ? "text-background" : "text-foreground"}`}>{plan.title}</h2>
+                                <p className={`text-sm leading-relaxed ${plan.featured ? "opacity-80" : "text-textMuted"}`}>{plan.description}</p>
                             </div>
 
                             <ul className="space-y-3 flex-1">
@@ -170,18 +158,18 @@ export default function PricingPage() {
                                         {/* check icon */}
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 mt-0.5">
                                             <path d="M3 8.5L6.5 12L13 5"
-                                                stroke={plan.featured ? "#a1a1aa" : "#52525b"}
+                                                stroke="currentColor"
                                                 strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
-                                        <span className={`text-sm font-medium ${plan.featured ? "text-white" : "text-zinc-700"}`}>{f}</span>
+                                        <span className={`text-sm font-medium ${plan.featured ? "text-background" : "text-foreground/80"}`}>{f}</span>
                                     </motion.li>
                                 ))}
                             </ul>
 
                             <motion.button
                                 className={`w-full py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 ${plan.featured
-                                        ? "bg-white text-black hover:bg-zinc-100"
-                                        : "bg-black text-white hover:bg-zinc-800"
+                                        ? "bg-background text-foreground hover:opacity-90"
+                                        : "bg-primary text-background hover:opacity-90"
                                     }`}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -196,7 +184,7 @@ export default function PricingPage() {
             {/* ── TRUST BAR ── */}
             <section ref={trustRef} className="py-10 px-6">
                 <motion.div
-                    className={`max-w-4xl mx-auto rounded-2xl px-10 py-8 shadow-sm flex flex-col md:flex-row items-center justify-around gap-8 text-center border transition-colors duration-300 ${trustBg} ${cardBorder}`}
+                    className="max-w-4xl mx-auto rounded-2xl px-10 py-8 shadow-sm flex flex-col md:flex-row items-center justify-around gap-8 text-center border border-border transition-colors duration-300 bg-secondary"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isTrustInView ? "visible" : "hidden"}
@@ -213,8 +201,8 @@ export default function PricingPage() {
                             animate={isTrustInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                             transition={{ duration: 0.4, delay: i * 0.1 }}
                         >
-                            <div className={`text-3xl font-black transition-colors duration-300 ${headText}`}>{stat}</div>
-                            <div className={`text-xs mt-1 tracking-wide uppercase transition-colors duration-300 ${subText}`}>{label}</div>
+                            <div className="text-3xl font-black transition-colors duration-300 text-foreground">{stat}</div>
+                            <div className="text-xs mt-1 tracking-wide uppercase transition-colors duration-300 text-textMuted">{label}</div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -228,10 +216,10 @@ export default function PricingPage() {
                     initial="hidden"
                     animate={isFaqInView ? "visible" : "hidden"}
                 >
-                    <h2 className={`text-3xl font-black mb-2 text-center transition-colors duration-300 ${headText}`}>
+                    <h2 className="text-3xl font-black mb-2 text-center transition-colors duration-300 text-foreground">
                         Frequently Asked Questions
                     </h2>
-                    <p className={`text-sm text-center mb-10 transition-colors duration-300 ${subText}`}>
+                    <p className="text-sm text-center mb-10 transition-colors duration-300 text-textMuted">
                         Everything you need to know before getting started.
                     </p>
                     {faqs.map((item) => (
@@ -243,20 +231,20 @@ export default function PricingPage() {
             {/* ── CTA BANNER ── */}
             <section className="py-16 px-6">
                 <motion.div
-                    className="max-w-4xl mx-auto rounded-3xl px-10 py-14 text-center transition-colors duration-300 bg-black"
+                    className="max-w-4xl mx-auto rounded-3xl px-10 py-14 text-center transition-colors duration-300 bg-primary"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-4xl font-black mb-3 text-white">
+                    <h2 className="text-4xl font-black mb-3 text-background">
                         Not sure which plan fits?
                     </h2>
-                    <p className="text-base mb-8 text-zinc-400">
+                    <p className="text-base mb-8 opacity-60 text-background">
                         Book a free 30-minute consultation and we'll find the right fit together.
                     </p>
                     <motion.button
-                        className="px-8 py-3 rounded-xl font-bold text-sm transition-colors duration-200 bg-white text-black hover:bg-zinc-100"
+                        className="px-8 py-3 rounded-xl font-bold text-sm transition-colors duration-200 bg-background text-foreground hover:opacity-90"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

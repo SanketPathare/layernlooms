@@ -31,12 +31,12 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#fafafa] selection:bg-black selection:text-white overflow-hidden">
+        <div className="min-h-screen bg-background selection:bg-primary selection:text-background overflow-hidden">
             {/* ── Premium Background ── */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-zinc-200/50 rounded-full blur-[120px] opacity-60" />
-                <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-zinc-100 rounded-full blur-[100px] opacity-40" />
-                <div className="absolute -bottom-[10%] left-[20%] w-[50%] h-[50%] bg-zinc-200/30 rounded-full blur-[150px] opacity-50" />
+                <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] opacity-60" />
+                <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-secondary/50 rounded-full blur-[100px] opacity-40" />
+                <div className="absolute -bottom-[10%] left-[20%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[150px] opacity-50" />
                 
                 {/* Subtle Grid */}
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
@@ -52,25 +52,25 @@ export default function ContactPage() {
                     {/* ── Left Column: Content & Info ── */}
                     <div className="lg:col-span-5 space-y-12">
                         <div className="space-y-6">
-                            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.03] border border-black/[0.05] backdrop-blur-md">
+                            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-border backdrop-blur-md">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                 </span>
-                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-500">Available for 2024 projects</span>
+                                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-textMuted">Available for 2024 projects</span>
                             </motion.div>
 
                             <motion.h1 
                                 variants={itemVariants}
-                                className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black leading-[0.85]"
+                                className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.85]"
                             >
                                 Let&apos;s talk <br />
-                                <span className="text-zinc-300">Strategy</span>
+                                <span className="text-textMuted/30">Strategy</span>
                             </motion.h1>
 
                             <motion.p 
                                 variants={itemVariants}
-                                className="text-xl text-zinc-500 max-w-md leading-relaxed"
+                                className="text-xl text-textMuted max-w-md leading-relaxed"
                             >
                                 Have a vision? We have the engineering expertise to bring it to life. Reach out and let&apos;s build something remarkable.
                             </motion.p>
@@ -78,36 +78,36 @@ export default function ContactPage() {
 
                         {/* Contact Methods */}
                         <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="relative p-8 rounded-[2.5rem] bg-white border border-zinc-100 shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-500 group overflow-hidden">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-zinc-50 rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
-                                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 mb-6">Email Us</p>
-                                <Link href="mailto:layernlooms@gmail.com" className="text-xl font-bold flex items-center gap-2 group-hover:text-zinc-600 transition-colors break-all leading-tight">
+                            <div className="relative p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
+                                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-textMuted mb-6">Email Us</p>
+                                <Link href="mailto:layernlooms@gmail.com" className="text-xl font-bold flex items-center gap-2 group-hover:text-primary transition-colors break-all leading-tight text-foreground">
                                     layernlooms@gmail.com
                                     <ArrowUpRight className="w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </div>
-                            <div className="relative p-8 rounded-[2.5rem] bg-white border border-zinc-100 shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-500 group overflow-hidden">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-zinc-50 rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
-                                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-zinc-400 mb-6">Studio</p>
-                                <p className="text-xl font-bold">Pune, MH, India</p>
+                            <div className="relative p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
+                                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-textMuted mb-6">Studio</p>
+                                <p className="text-xl font-bold text-foreground">Pune, MH, India</p>
                                 <div className="mt-2 flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
-                                    <p className="text-sm text-zinc-400 font-medium">GMT +5:30</p>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+                                    <p className="text-sm text-textMuted font-medium">GMT +5:30</p>
                                 </div>
                             </div>
                         </motion.div>
 
                         {/* Social Links */}
                         <motion.div variants={itemVariants} className="space-y-6">
-                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400">Social Connect</p>
+                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-textMuted">Social Connect</p>
                             <div className="flex flex-wrap gap-4">
                                 {socialLinks.map((social) => (
                                     <Link 
                                         key={social.name} 
                                         href={social.href}
-                                        className={`w-12 h-12 flex items-center justify-center rounded-2xl bg-white border border-zinc-100 shadow-sm transition-all duration-300 group ${social.color}`}
+                                        className={`w-12 h-12 flex items-center justify-center rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 group ${social.color}`}
                                     >
-                                        <social.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
+                                        <social.icon className="w-5 h-5 transition-transform group-hover:scale-110 text-foreground" />
                                     </Link>
                                 ))}
                             </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                     >
                         <div className="relative group">
                             {/* Decorative elements behind form */}
-                            <div className="absolute -inset-4 bg-gradient-to-tr from-zinc-200/50 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                             
                             <div className="relative">
                                 <ContactForm />
@@ -140,14 +140,14 @@ export default function ContactPage() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-32 pt-10 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-6"
+                    className="mt-32 pt-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6"
                 >
-                    <p className="text-zinc-400 text-sm italic">
+                    <p className="text-textMuted text-sm italic">
                         &quot;Design is not just what it looks like and feels like. Design is how it works.&quot;
                     </p>
                     <div className="flex items-center gap-4">
-                        <div className="h-10 w-px bg-zinc-200" />
-                        <span className="text-lg font-bold tracking-tighter italic">LayerNLooms</span>
+                        <div className="h-10 w-px bg-border" />
+                        <span className="text-lg font-bold tracking-tighter italic text-foreground">LayerNLooms</span>
                     </div>
                 </motion.div>
             </main>

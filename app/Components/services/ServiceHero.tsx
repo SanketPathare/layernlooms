@@ -27,7 +27,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
                 >
                     <button
                         onClick={() => router.back()}
-                        className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors group cursor-pointer"
+                        className="inline-flex items-center gap-2 text-textMuted hover:text-foreground transition-colors group cursor-pointer"
                     >
                         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                         <span className="text-sm font-medium">Back</span>
@@ -41,28 +41,28 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="inline-flex items-center rounded-full bg-gray-200 px-3 py-1 text-sm font-medium text-gray-950 mb-6">
+                        <div className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-foreground mb-6">
                             Our Service
                         </div>
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                             {service.title}
                         </h1>
-                        <p className="mt-4 text-xl text-gray-900 font-medium">
+                        <p className="mt-4 text-xl text-foreground font-medium">
                             {service.subtitle}
                         </p>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
+                        <p className="mt-6 text-lg leading-8 text-textMuted">
                             {service.longDescription}
                         </p>
                         <div className="mt-8 flex items-center gap-x-4">
                             <Link
                                 href="/contact"
-                                className="rounded-full bg-gray-900 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-950 transition-colors"
+                                className="rounded-full bg-primary px-6 py-3 text-base font-semibold text-background shadow-sm hover:opacity-90 transition-colors"
                             >
                                 Get Started
                             </Link>
                             <Link
                                 href="/services"
-                                className="rounded-full bg-white px-6 py-3 text-base font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors"
+                                className="rounded-full bg-background px-6 py-3 text-base font-semibold text-foreground shadow-sm ring-1 ring-inset ring-border hover:bg-secondary transition-colors"
                             >
                                 View All Services
                             </Link>

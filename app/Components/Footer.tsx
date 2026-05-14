@@ -63,20 +63,20 @@ export default function Footer() {
       alt="Logo"
       width={300}
       height={300}
-      className={className}
+      className={`${className} dark:invert`}
       loading='eager'
     />
   );
 
   /* ─── tokens ─── */
-  const bg = "bg-white";
-  const borderTop = "border-zinc-200";
-  const headText = "text-zinc-900";
-  const bodyText = "text-zinc-600";
-  const labelText = "text-zinc-700";
-  const hoverText = "hover:text-black";
-  const divider = "border-zinc-200";
-  const iconColor = "text-zinc-400";
+  const bg = "bg-background";
+  const borderTop = "border-border";
+  const headText = "text-foreground";
+  const bodyText = "text-textMuted";
+  const labelText = "text-foreground";
+  const hoverText = "hover:text-primary";
+  const divider = "border-border";
+  const iconColor = "text-textMuted";
 
   return (
     <footer className={`relative border-t transition-colors duration-300 ${bg} ${borderTop}`}>

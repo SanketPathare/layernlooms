@@ -54,15 +54,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <ServiceHero service={service} />
 
       {/* Main Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               {/* Description */}
-              <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold text-gray-900">Overview</h2>
-                <p className="text-gray-600 leading-relaxed">
+              <div className="prose prose-lg max-w-none dark:prose-invert">
+                <h2 className="text-3xl font-bold text-foreground">Overview</h2>
+                <p className="text-textMuted leading-relaxed">
                   {service.longDescription}
                 </p>
               </div>
@@ -70,12 +70,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Features */}
               {service.features && service.features.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-3xl font-bold text-gray-900">Key Features</h2>
+                  <h2 className="text-3xl font-bold text-foreground">Key Features</h2>
                   <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-textMuted">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -85,12 +85,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Benefits */}
               {service.benefits && service.benefits.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-3xl font-bold text-gray-900">Benefits</h2>
+                  <h2 className="text-3xl font-bold text-foreground">Benefits</h2>
                   <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.benefits.map((benefit) => (
                       <div key={benefit} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-gray-900 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
+                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-textMuted">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -100,12 +100,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* Technologies */}
               {service.technologies && service.technologies.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-3xl font-bold text-gray-900">Technologies We Use</h2>
+                  <h2 className="text-3xl font-bold text-foreground">Technologies We Use</h2>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {service.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800"
+                        className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-foreground/80"
                       >
                         {tech}
                       </span>
@@ -117,16 +117,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* FAQs */}
               {service.faqs && service.faqs.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-3xl font-bold text-gray-900">
+                  <h2 className="text-3xl font-bold text-foreground">
                     Frequently Asked Questions
                   </h2>
                   <div className="mt-6 space-y-6">
                     {service.faqs.map((faq, index) => (
-                      <div key={index} className="border-b border-gray-200 pb-6">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                      <div key={index} className="border-b border-border pb-6">
+                        <h3 className="text-lg font-semibold text-foreground">
                           {faq.question}
                         </h3>
-                        <p className="mt-2 text-gray-600">{faq.answer}</p>
+                        <p className="mt-2 text-textMuted">{faq.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -136,20 +136,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
             {/* Right Column - Sidebar */}
             <div className="lg:col-span-1">
-         
-            
-
               {/* Contact Card */}
-              <div className="mt-8 rounded-2xl bg-gray-50 p-6">
-                <h3 className="text-lg font-semibold text-gray-900">
+              <div className="mt-8 rounded-2xl bg-secondary p-6">
+                <h3 className="text-lg font-semibold text-foreground">
                   Need a Custom Solution?
                 </h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm text-textMuted">
                   Let's discuss your specific requirements and create a tailored solution.
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-gray-800 hover:text-gray-900"
+                  className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:opacity-80"
                 >
                   Contact Our Experts
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -161,18 +158,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* Related Services CTA */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-secondary py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-3xl font-bold text-foreground">
             Explore Other Services
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-textMuted">
             Discover how we can help you with other business needs
           </p>
           <div className="mt-8">
             <Link
               href="/services"
-              className="inline-flex items-center rounded-full bg-gray-900 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-950 transition-all duration-300"
+              className="inline-flex items-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-background shadow-sm hover:opacity-90 transition-all duration-300"
             >
               View All Services
               <ArrowRight className="ml-2 h-5 w-5" />

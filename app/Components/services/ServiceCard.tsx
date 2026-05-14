@@ -22,10 +22,10 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className={`group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 bg-white border border-gray-200 hover:shadow-xl`}
+                className="group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 bg-card border border-border hover:border-primary/20 hover:shadow-xl dark:hover:shadow-primary/5"
             >
                 {/* Image Container */}
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden bg-secondary">
                     <Image
                         src={service.image}
                         alt={service.title}
@@ -35,18 +35,18 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                 </div>
 
                 {/* Content */}
-                <div className={`flex flex-1 flex-col p-6`}>
+                <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center justify-between">
-                        <h3 className={`text-xl font-semibold transition-colors text-gray-900`}>
+                        <h3 className="text-xl font-semibold transition-colors text-foreground group-hover:text-primary">
                             {service.title}
                         </h3>
                     </div>
 
-                    <p className={`mt-2 text-sm font-medium transition-colors text-gray-700`}>
+                    <p className="mt-2 text-sm font-medium transition-colors text-foreground/80">
                         {service.subtitle}
                     </p>
 
-                    <p className={`mt-3 text-sm line-clamp-3 transition-colors text-gray-600`}>
+                    <p className="mt-3 text-sm line-clamp-3 transition-colors text-textMuted">
                         {service.description}
                     </p>
 
@@ -55,14 +55,14 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                         {service.features.slice(0, 2).map((feature) => (
                             <span
                                 key={feature}
-                                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-gray-100 text-gray-700`}
+                                className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-secondary text-textMuted"
                             >
                                 {feature}
                             </span>
                         ))}
                         {service.features.length > 2 && (
                             <span
-                                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-gray-100 text-gray-600`}
+                                className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-secondary text-textMuted/70"
                             >
                                 +{service.features.length - 2} more
                             </span>
@@ -71,10 +71,10 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
 
                     {/* Link */}
                     <div
-                        className={`mt-6 inline-flex items-center text-sm font-semibold transition-colors group/link text-gray-600 hover:text-gray-700`}
+                        className="mt-6 inline-flex items-center text-sm font-semibold transition-colors group/link text-primary hover:opacity-80"
                     >
                         Learn More
-                        <ArrowRight className={`ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1`} />
+                        <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                     </div>
                 </div>
             </motion.div>

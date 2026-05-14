@@ -70,13 +70,12 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                     </div>
 
                     {/* Link */}
-                    <Link
-                        href={`/services/${service.slug}`}
+                    <div
                         className={`mt-6 inline-flex items-center text-sm font-semibold transition-colors group/link text-gray-600 hover:text-gray-700`}
                     >
                         Learn More
                         <ArrowRight className={`ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1`} />
-                    </Link>
+                    </div>
                 </div>
             </motion.div>
         </Link>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FloatInput from "./FloatInput";
+import { Send, CheckCircle2, Plus, X } from "lucide-react";
 
 const defaultProjectTypes = [
     "Web Development",
@@ -62,25 +63,28 @@ export default function ContactForm() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 3500);
+        setTimeout(() => setSubmitted(false), 5000);
     };
 
     return (
         <form 
             onSubmit={handleSubmit}
-            className="w-full relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-zinc-100 bg-white p-6 sm:p-10 md:p-12 lg:p-16 shadow-2xl shadow-zinc-200/50 flex flex-col gap-8 group"
+            className="w-full relative overflow-hidden rounded-[2.5rem] border border-black/[0.05] bg-white/80 backdrop-blur-2xl p-6 sm:p-10 lg:p-12 shadow-2xl shadow-zinc-200/50 flex flex-col gap-8 group transition-all duration-500"
         >
-            {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-zinc-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50 group-hover:opacity-100 transition-opacity" />
+            {/* Form Header Area */}
+            <div className="flex flex-col gap-2 mb-2">
+                <h2 className="text-2xl font-bold tracking-tight">Project Brief</h2>
+                <p className="text-sm text-zinc-500">Let&apos;s define the scope of your digital revolution.</p>
+            </div>
 
             {/* Name + Email Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                <FloatInput label="Your Name" name="name" type="text" value={form.name} focused={focused} onChange={handleChange} onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} />
-                <FloatInput label="Email Address" name="email" type="email" value={form.email} focused={focused} onChange={handleChange} onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} />
+                <FloatInput label="Full Name" name="name" type="text" value={form.name} focused={focused} onChange={handleChange} onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} required />
+                <FloatInput label="Email Address" name="email" type="email" value={form.email} focused={focused} onChange={handleChange} onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} required />
             </div>
 
             {/* Company Field (Optional) */}
-            <FloatInput label="Company (optional)" name="company" type="text" value={form.company} focused={focused} onChange={handleChange} onFocus={() => setFocused("company")} onBlur={() => setFocused(null)} />
+            <FloatInput label="Company / Organization" name="company" type="text" value={form.company} focused={focused} onChange={handleChange} onFocus={() => setFocused("company")} onBlur={() => setFocused(null)} />
 
             {/* Project Type + Budget Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -93,7 +97,7 @@ export default function ContactForm() {
                                 : "top-1/2 -translate-y-1/2 text-sm text-zinc-400 group-hover:text-zinc-500"
                             }`}
                     >
-                        Project Type
+                        Project Specialty
                     </label>
                     <select
                         id="projectType"
@@ -110,73 +114,43 @@ export default function ContactForm() {
                                 {p}
                             </option>
                         ))}
-                        <option 
-                            value="__add_new__" 
-                            className="bg-black text-white font-bold"
-                            style={{ backgroundColor: 'black', color: 'white' }}
-                        >
-                            + Add Custom Specialty
-                        </option>
+                        <option value="__add_new__" className="font-bold text-black">+ Other Specialty</option>
                     </select>
-                    <svg
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none text-zinc-400 group-hover:text-zinc-600 transition-colors"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <Plus className={`w-4 h-4 transition-transform duration-300 ${focused === "projectType" ? "rotate-45" : ""}`} />
+                    </div>
                 </div>
 
-                {/* Budget Selection (Using the generic FloatInput) */}
-                <FloatInput label="Estimated Budget" name="budget" type="text" value={form.budget} focused={focused} onChange={handleChange} onFocus={() => setFocused("budget")} onBlur={() => setFocused(null)} />
+                <FloatInput label="Estimated Budget" name="budget" type="text" value={form.budget} focused={focused} onChange={handleChange} onFocus={() => setFocused("budget")} onBlur={() => setFocused(null)} placeholder="e.g. $10k - $25k" />
             </div>
 
-            {/* Custom Input Reveal Area */}
+            {/* Custom Input Area */}
             <AnimatePresence>
                 {showCustomInput && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.98, height: 0 }}
-                        animate={{ opacity: 1, scale: 1, height: "auto" }}
-                        exit={{ opacity: 0, scale: 0.98, height: 0 }}
-                        className="overflow-hidden"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="p-4 rounded-2xl bg-zinc-50 border border-zinc-100"
                     >
-                        <div className="relative pt-2 pb-6 border-b border-zinc-100 mb-2">
-                            <div className="flex flex-col sm:flex-row gap-4 items-end">
-                                <div className="flex-1 w-full">
-                                    <FloatInput 
-                                        label="Custom Focus Area" 
-                                        name="customType" 
-                                        type="text" 
-                                        value={customType} 
-                                        focused={focused} 
-                                        onChange={(e) => setCustomType(e.target.value)} 
-                                        onFocus={() => setFocused("customType")} 
-                                        onBlur={() => setFocused(null)} 
-                                    />
-                                    <p className="mt-2 ml-4 text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Press Enter to Add</p>
-                                </div>
-                                <div className="flex gap-2 shrink-0">
-                                    <button
-                                        type="button"
-                                        onClick={handleCancelCustom}
-                                        className="h-[52px] px-6 rounded-2xl text-xs font-bold tracking-widest uppercase bg-zinc-50 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 transition-all border border-zinc-100"
-                                    >
-                                        Cancel
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={handleAddCustomType}
-                                        className="h-[52px] px-8 rounded-2xl text-xs font-bold tracking-widest uppercase bg-black text-white hover:bg-zinc-800 transition-all shadow-lg shadow-black/10"
-                                    >
-                                        Add
-                                    </button>
-                                </div>
+                        <div className="flex gap-3 items-center">
+                            <div className="flex-1">
+                                <FloatInput label="Describe Specialty" name="customType" type="text" value={customType} focused={focused} onChange={(e) => setCustomType(e.target.value)} onFocus={() => setFocused("customType")} onBlur={() => setFocused(null)} />
+                            </div>
+                            <div className="flex gap-2">
+                                <button type="button" onClick={handleCancelCustom} className="p-3 rounded-xl bg-white border border-zinc-200 text-zinc-400 hover:text-black transition-colors">
+                                    <X className="w-5 h-5" />
+                                </button>
+                                <button type="button" onClick={handleAddCustomType} className="px-6 rounded-xl bg-black text-white font-bold text-xs uppercase tracking-widest hover:bg-zinc-800 transition-colors">
+                                    Add
+                                </button>
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Project Message/Textarea */}
+            {/* Message Area */}
             <div className="relative group">
                 <label
                     htmlFor="message"
@@ -190,40 +164,50 @@ export default function ContactForm() {
                 <textarea
                     id="message"
                     name="message"
-                    rows={6}
+                    rows={5}
                     value={form.message}
                     onChange={handleChange}
                     onFocus={() => setFocused("message")}
                     onBlur={() => setFocused(null)}
-                    className={`w-full border rounded-3xl px-4 pt-10 pb-4 text-sm resize-none outline-none transition-all duration-200 bg-zinc-50/50 text-black ${focused === "message" ? "border-black ring-1 ring-black bg-white" : "border-zinc-100 hover:border-zinc-200"}`}
-                    placeholder="Tell us about your mission..."
+                    className={`w-full border rounded-3xl px-4 pt-10 pb-4 text-sm resize-none outline-none transition-all duration-200 bg-zinc-50/50 text-black ${focused === "message" ? "border-black ring-1 ring-black bg-white shadow-sm" : "border-zinc-100 hover:border-zinc-300"}`}
+                    placeholder={(focused === "message" || form.message) ? "Tell us about your mission, goals and timelines..." : ""}
                 />
             </div>
 
             {/* Submission Section */}
-            <div className="flex flex-col gap-6 mt-4">
+            <div className="flex flex-col gap-6">
                 <motion.button
                     whileHover={{ scale: 1.01, y: -2 }}
                     whileTap={{ scale: 0.99 }}
                     disabled={submitted}
-                    className={`w-full py-5 rounded-2xl font-bold text-sm tracking-[.25em] uppercase transition-all duration-300 ${submitted
-                            ? "bg-emerald-500 text-white cursor-not-allowed"
-                            : "bg-black text-white hover:bg-zinc-800 shadow-2xl shadow-black/10"
+                    className={`group relative overflow-hidden w-full py-5 rounded-2xl font-bold text-xs tracking-[.25em] uppercase transition-all duration-500 ${submitted
+                            ? "bg-emerald-500 text-white shadow-emerald-200"
+                            : "bg-black text-white hover:bg-zinc-800 shadow-xl shadow-black/10"
                         }`}
                 >
-                    {submitted ? "✓ Message Sent Successfully" : "Send Project Brief"}
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                        {submitted ? (
+                            <>
+                                <CheckCircle2 className="w-4 h-4 animate-bounce" />
+                                Brief Sent Successfully
+                            </>
+                        ) : (
+                            <>
+                                <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                Initiate Conversation
+                            </>
+                        )}
+                    </span>
+                    
+                    {/* Hover Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </motion.button>
 
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-2 border-t border-zinc-50 pt-6">
-                    <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <p className="text-[10px] font-bold tracking-widest uppercase text-zinc-400">Response time: ~24hrs</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <p className="text-[10px] font-bold tracking-widest uppercase text-zinc-400">Pune, India (GMT+5:30)</p>
-                    </div>
+                <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-zinc-400">Response in &lt; 24h</p>
                 </div>
             </div>
         </form>
     );
-}
+}

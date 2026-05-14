@@ -69,7 +69,7 @@ export default function FloatInput({
                 onFocus={onFocus}
                 onBlur={onBlur}
                 autoComplete="off"
-                placeholder={placeholder}
+                placeholder={active ? placeholder : ""}
                 required={required}
                 className={`w-full rounded-2xl px-4 py-3 text-sm outline-none transition-all duration-200 bg-zinc-50/50 text-black placeholder:text-zinc-400 placeholder:text-sm
                     ${active ? "pt-7 pb-3" : "pt-3 pb-3"}

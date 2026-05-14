@@ -20,12 +20,11 @@ export default function HeroSection() {
       {/* Content */}
       <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight mb-6 text-foreground">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-foreground">
           Weaving Digital Experiences with{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+      
             Precision, Depth & AI
-          </span>
-        </h1>
+             </h1>
 
         {/* Subheading */}
         <p className="text-lg sm:text-xl text-textMuted mb-12 max-w-3xl mx-auto leading-relaxed">

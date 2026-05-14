@@ -43,8 +43,8 @@ export default function ExpertiseSection() {
           {expertise.map((item, index) => (
             <div
               key={index}
-              className="group relative bg-card/70 backdrop-blur-sm border border-border/50 
-                       rounded-2xl p-8 hover:bg-card hover:border-primary/30 
+              className="group relative bg-card backdrop-blur-sm border border-border 
+                       rounded-2xl p-8 hover:border-primary/30 
                        transition-all duration-500 hover:shadow-2xl hover:-translate-y-3
                        hover:scale-[1.02] cursor-default overflow-hidden"
             >

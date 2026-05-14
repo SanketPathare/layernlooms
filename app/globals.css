@@ -31,7 +31,7 @@
   --popover-foreground: #f8fafc;
   --primary: #f8fafc;
   --primary-foreground: #171717;
-  --secondary: #1e1e1e;
+  --secondary: #1a1a1a;
   --secondary-foreground: #f8fafc;
   --muted: #1e1e1e;
   --muted-foreground: #94a3b8;
@@ -39,8 +39,8 @@
   --accent-foreground: #f8fafc;
   --destructive: #7f1d1d;
   --destructive-foreground: #f8fafc;
-  --border: #1e1e1e;
-  --input: #1e1e1e;
+  --border: #27272a;
+  --input: #27272a;
   --ring: #d1d5db;
 }
 

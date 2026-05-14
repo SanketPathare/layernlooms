@@ -100,7 +100,7 @@ export default function EngagementModels() {
             <div
               key={model.title}
               className={`
-                rounded-2xl p-8 transition-all duration-700
+                rounded-xl p-8 transition-all duration-700
                 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                 ${
                   isFeatured

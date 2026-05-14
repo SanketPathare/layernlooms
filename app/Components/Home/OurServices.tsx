@@ -79,7 +79,7 @@ export default function OurServices() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                   whileHover={{ y: -8 }}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:border-primary/20 hover:shadow-lg dark:hover:shadow-primary/5"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:border-primary/20 hover:shadow-lg dark:hover:shadow-primary/5"
                 >
                   {/* Image Container */}
                   <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary">

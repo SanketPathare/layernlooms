@@ -15,7 +15,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
     const router = useRouter();
 
     return (
-        <section className="relative bg-gradient-to-t from-gray-50 via-white to-gray-100 py-10 overflow-hidden">
+        <section className="relative  py-10 overflow-hidden">
             <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,transparent,white)]" />
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Back Button */}

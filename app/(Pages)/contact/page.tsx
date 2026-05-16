@@ -77,7 +77,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Contact Methods */}
-                        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <motion.div variants={itemVariants} className="">
                             <div className="relative p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group overflow-hidden">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-secondary rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
                                 <p className="text-[10px] font-black tracking-[0.2em] uppercase text-textMuted mb-6">Email Us</p>
@@ -86,15 +86,7 @@ export default function ContactPage() {
                                     <ArrowUpRight className="w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </div>
-                            <div className="relative p-8 rounded-[2.5rem] bg-card border border-border shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group overflow-hidden">
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-secondary rounded-full blur-3xl -mr-12 -mt-12 opacity-50" />
-                                <p className="text-[10px] font-black tracking-[0.2em] uppercase text-textMuted mb-6">Studio</p>
-                                <p className="text-xl font-bold text-foreground">Pune, MH, India</p>
-                                <div className="mt-2 flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
-                                    <p className="text-sm text-textMuted font-medium">GMT +5:30</p>
-                                </div>
-                            </div>
+                            
                         </motion.div>
 
                         {/* Social Links */}

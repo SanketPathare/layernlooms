@@ -16,6 +16,7 @@ import { FaServicestack } from 'react-icons/fa';
 
 
 import { ThemeToggle } from './ThemeToggle';
+import Logo from './Logo';
 
 
 const Navbar = () => {
@@ -61,17 +62,6 @@ const Navbar = () => {
   const headText = 'text-foreground';
   const ctaCls = 'bg-primary text-background hover:opacity-90';
 
-  /* ─── Logo component that changes based on theme ──────── */
-  const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
-    <Image
-      src="/logo.jpg"
-      alt="Logo"
-      width={300}
-      height={300}
-      className={`${className} dark:invert`}
-      loading='eager'
-    />
-  );
 
   return (
     <>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin, Facebook, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import Logo from "./Logo";
 import { useState } from "react";
 
 
@@ -56,17 +57,6 @@ export default function Footer() {
     }
   };
 
-  /* ─── Logo component that changes based on theme ──────── */
-  const Logo = ({ className = "w-auto h-12" }: { className?: string }) => (
-    <Image
-      src="/logo.jpg"
-      alt="Logo"
-      width={300}
-      height={300}
-      className={`${className} dark:invert`}
-      loading='eager'
-    />
-  );
 
   /* ─── tokens ─── */
   const bg = "bg-background";

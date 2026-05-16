@@ -69,6 +69,8 @@
   --color-textMuted: var(--muted-foreground);
 
   --font-inter: var(--font-inter);
+
+  --variant-dark: .dark;
 }
 
 @layer base {

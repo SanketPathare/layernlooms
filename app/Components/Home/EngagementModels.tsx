@@ -69,7 +69,7 @@ export default function EngagementModels() {
             <motion.div
               key={model.title}
               variants={itemVariants}
-              className="group rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-xl dark:hover:shadow-primary/5"
+              className="group rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-xl"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <model.icon className="h-6 w-6" />

@@ -60,7 +60,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               {/* Description */}
-              <div className="prose prose-lg max-w-none dark:prose-invert">
+              <div className="prose prose-lg max-w-none ">
                 <h2 className="text-3xl font-bold text-foreground">Overview</h2>
                 <p className="text-textMuted leading-relaxed">
                   {service.longDescription}

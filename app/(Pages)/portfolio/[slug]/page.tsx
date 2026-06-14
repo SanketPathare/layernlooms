@@ -39,7 +39,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     <div className="min-h-screen bg-background">
       {/* Hero Section - Matching ServiceHero Style */}
       <section className="relative pt-10 pb-20 overflow-hidden bg-background">
-        <div className="absolute inset-0 bg-grid-slate-900/[0.04] dark:bg-grid-slate-100/[0.04] [mask-image:linear-gradient(0deg,transparent,white)]" />
+        <div className="absolute inset-0 bg-grid-slate-900/[0.04] [mask-image:linear-gradient(0deg,transparent,white)]" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Back Button */}
           <div className="mb-8">
@@ -100,7 +100,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               {/* Challenge */}
-              <div className="prose prose-lg max-w-none dark:prose-invert">
+              <div className="prose prose-lg max-w-none ">
                 <h2 className="text-3xl font-bold text-foreground mb-6">The Challenge</h2>
                 <p className="text-textMuted leading-relaxed mb-12">
                   {project.longDescription}

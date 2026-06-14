@@ -12,8 +12,6 @@ export default function ServicesPage() {
   const heroRef = useRef(null);
   const servicesRef = useRef(null);
   const ctaRef = useRef(null);
-  const isDark = false;
-
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.1 });
   const isServicesInView = useInView(servicesRef, { once: true, amount: 0.1 });
   const isCtaInView = useInView(ctaRef, { once: true, amount: 0.1 });

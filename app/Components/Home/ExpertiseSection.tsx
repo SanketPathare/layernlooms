@@ -79,7 +79,7 @@ export default function ExpertiseSection() {
             <motion.div
               key={area.title}
               variants={itemVariants}
-              className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-xl dark:hover:shadow-primary/5"
+              className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-xl"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                 <area.icon className="h-6 w-6" />

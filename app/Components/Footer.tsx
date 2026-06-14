@@ -43,7 +43,6 @@ const fadeInUp = {
 };
 
 export default function Footer() {
-  const isDark = false;
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);

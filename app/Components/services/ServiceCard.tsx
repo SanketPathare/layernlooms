@@ -13,8 +13,6 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
-    const isDark = false;
-
     return (
         <Link href={`/services/${service.slug}`} className="w-full">
             <motion.div
@@ -22,7 +20,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 bg-card border border-border hover:border-primary/20 hover:shadow-xl dark:hover:shadow-primary/5"
+                className="group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 bg-card border border-border hover:border-primary/20 hover:shadow-xl"
             >
                 {/* Image Container */}
                 <div className="relative h-48 w-full overflow-hidden bg-secondary">

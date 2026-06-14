@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { FaServicestack } from 'react-icons/fa';
 
 
-import { ThemeToggle } from './ThemeToggle';
+
 import Logo from './Logo';
 
 
@@ -97,9 +97,8 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Right: CTA & Theme Toggle */}
+        {/* Right: CTA */}
         <div className="flex items-center gap-3">
-          <ThemeToggle />
           <Link href="/get-started" className={`px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${ctaCls}`}>
             Get Started
           </Link>
@@ -148,7 +147,6 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
             <FiMenu className="w-6 h-6" />
           </button>
@@ -191,7 +189,6 @@ const Navbar = () => {
               <Logo className="w-auto h-10" />
             </Link>
             <div className="flex items-center gap-2">
-              <ThemeToggle />
               <button onClick={toggleMobileMenu} className={`p-2 transition-colors ${linkMuted} ${linkHover}`}>
                 <FiX className="w-6 h-6" />
               </button>

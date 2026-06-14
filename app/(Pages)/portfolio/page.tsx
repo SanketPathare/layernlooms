@@ -11,7 +11,7 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
-  
+
   const heroRef = useRef(null);
   const projectsRef = useRef(null);
   const ctaRef = useRef(null);
@@ -65,11 +65,10 @@ export default function PortfolioPage() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
                     ? "bg-primary text-background shadow-lg"
                     : "bg-secondary text-textMuted hover:bg-secondary/80"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -120,13 +119,13 @@ export default function PortfolioPage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                       <Link 
+                      <Link
                         href={`/portfolio/${project.slug}`}
                         className="bg-background text-foreground px-6 py-3 rounded-full font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                       >
-                         View Case Study
-                         <ArrowRight className="w-4 h-4" />
-                       </Link>
+                      >
+                        View Case Study
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
                     </div>
                   </div>
 

@@ -126,8 +126,8 @@ export default function PricingPage() {
                             initial="hidden"
                             animate={isCardsInView ? "visible" : "hidden"}
                             className={`rounded-2xl p-8 flex flex-col gap-6 transition-colors duration-300 ${plan.featured
-                                    ? "bg-primary text-background scale-105 shadow-2xl z-10"
-                                    : "bg-card border border-border shadow-sm hover:shadow-lg text-foreground"
+                                ? "bg-primary text-background scale-105 shadow-2xl z-10"
+                                : "bg-card border border-border shadow-sm hover:shadow-lg text-foreground"
                                 }`}
                             whileHover={!plan.featured ? { y: -4, transition: { duration: 0.2 } } : {}}
                         >
@@ -168,8 +168,8 @@ export default function PricingPage() {
 
                             <motion.button
                                 className={`w-full py-3 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 ${plan.featured
-                                        ? "bg-background text-foreground hover:opacity-90"
-                                        : "bg-primary text-background hover:opacity-90"
+                                    ? "bg-background text-foreground hover:opacity-90"
+                                    : "bg-primary text-background hover:opacity-90"
                                     }`}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}

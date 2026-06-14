@@ -37,13 +37,13 @@ export default function ContactPage() {
                 <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] opacity-60" />
                 <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-secondary/50 rounded-full blur-[100px] opacity-40" />
                 <div className="absolute -bottom-[10%] left-[20%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[150px] opacity-50" />
-                
+
                 {/* Subtle Grid */}
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay" />
             </div>
 
             <main className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-20">
-                <motion.div 
+                <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={containerVariants}
@@ -60,7 +60,7 @@ export default function ContactPage() {
                                 <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-textMuted">Available for 2024 projects</span>
                             </motion.div>
 
-                            <motion.h1 
+                            <motion.h1
                                 variants={itemVariants}
                                 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.85]"
                             >
@@ -68,7 +68,7 @@ export default function ContactPage() {
                                 <span className="text-textMuted/30">Strategy</span>
                             </motion.h1>
 
-                            <motion.p 
+                            <motion.p
                                 variants={itemVariants}
                                 className="text-xl text-textMuted max-w-md leading-relaxed"
                             >
@@ -86,7 +86,7 @@ export default function ContactPage() {
                                     <ArrowUpRight className="w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </div>
-                            
+
                         </motion.div>
 
                         {/* Social Links */}
@@ -94,8 +94,8 @@ export default function ContactPage() {
                             <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-textMuted">Social Connect</p>
                             <div className="flex flex-wrap gap-4">
                                 {socialLinks.map((social) => (
-                                    <Link 
-                                        key={social.name} 
+                                    <Link
+                                        key={social.name}
                                         href={social.href}
                                         className={`w-12 h-12 flex items-center justify-center rounded-2xl bg-card border border-border shadow-sm transition-all duration-300 group ${social.color}`}
                                     >
@@ -112,14 +112,14 @@ export default function ContactPage() {
                     </div>
 
                     {/* ── Right Column: Form ── */}
-                    <motion.div 
+                    <motion.div
                         variants={itemVariants}
                         className="lg:col-span-7"
                     >
                         <div className="relative group">
                             {/* Decorative elements behind form */}
                             <div className="absolute -inset-4 bg-gradient-to-tr from-primary/10 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                            
+
                             <div className="relative">
                                 <ContactForm />
                             </div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 </motion.div>
 
                 {/* Footer Quote / Branding */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}

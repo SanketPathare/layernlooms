@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import FloatInput from "./FloatInput";
+import FloatInput from "./Floatinput";
 import { Send, CheckCircle2, Plus, X } from "lucide-react";
 
 const defaultProjectTypes = [

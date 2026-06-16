@@ -58,7 +58,13 @@ const itemVariants = {
 
 export default function OurServices() {
   return (
-    <section className="py-20 bg-secondary/50">
+    <section className="relative py-20 bg-secondary/30 dark:bg-zinc-950/20 overflow-hidden">
+      {/* Ambient glassmorphic glows */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="absolute top-1/3 -left-40 h-[450px] w-[450px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
+        <div className="absolute bottom-1/3 -right-40 h-[450px] w-[450px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -86,9 +92,9 @@ export default function OurServices() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group relative rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/20 hover:shadow-xl"
+              className="group relative rounded-2xl border border-neutral-200/50 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.02] backdrop-blur-md p-8 shadow-[0_8px_30px_rgb(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/80 dark:hover:bg-white/[0.05] hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-neutral-100/80 dark:bg-white/[0.04] border border-neutral-200/50 dark:border-white/[0.08] text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-neutral-900 group-hover:shadow-md">
                 <service.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-6 text-lg font-semibold text-foreground">
@@ -99,7 +105,7 @@ export default function OurServices() {
               </p>
               <Link
                 href={service.href}
-                className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-all hover:gap-2"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-800 dark:text-neutral-200 transition-all hover:text-primary dark:hover:text-white hover:gap-2.5"
               >
                 Learn More <ArrowRight className="h-4 w-4" />
               </Link>
@@ -116,7 +122,7 @@ export default function OurServices() {
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-secondary"
+            className="inline-flex items-center gap-2 rounded-xl border border-neutral-200/50 dark:border-white/[0.08] bg-white/40 dark:bg-white/[0.02] backdrop-blur-md px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-white/80 dark:hover:bg-white/[0.06] hover:border-neutral-300 dark:hover:border-white/[0.15] hover:shadow-lg"
           >
             View All Services <ArrowRight className="h-4 w-4" />
           </Link>

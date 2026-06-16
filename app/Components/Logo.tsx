@@ -8,7 +8,7 @@ const Logo = ({ className = "w-auto h-12" }: { className?: string }) => {
         alt="LayerNLooms Logo"
         width={300}
         height={300}
-        className={`${className} object-contain`}
+        className={`${className} object-contain dark:invert`}
         priority
       />
     </div>

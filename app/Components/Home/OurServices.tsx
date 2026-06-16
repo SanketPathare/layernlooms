@@ -2,41 +2,41 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Globe, Smartphone, Brain, Cloud, Database, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Globe,
+    image: "/web-dev.png",
     title: "Web Development",
     description: "Custom web applications, SaaS platforms, and enterprise portals built with modern frameworks.",
     href: "/services/web-development",
   },
   {
-    icon: Smartphone,
+    image: "/mobile-app.png",
     title: "Mobile App Development",
     description: "Native iOS, Android, and cross-platform mobile solutions with exceptional UX.",
     href: "/services/mobile-app-development",
   },
   {
-    icon: Brain,
+    image: "/ai-ml.png",
     title: "AI & ML Solutions",
     description: "Intelligent automation, predictive analytics, and custom machine learning models.",
     href: "/services/ai-ml-solutions",
   },
   {
-    icon: Cloud,
+    image: "/cloud-infra.png",
     title: "Cloud Infrastructure",
     description: "Scalable cloud architecture, migration, and managed infrastructure services.",
     href: "/services/cloud-infrastructure",
   },
   {
-    icon: Database,
+    image: "/data-eng.png",
     title: "Data Engineering",
     description: "Data pipelines, warehousing, visualization, and business intelligence solutions.",
     href: "/services/data-engineering",
   },
   {
-    icon: Shield,
+    image: "/cybersecurity.png",
     title: "Cybersecurity",
     description: "Security audits, penetration testing, compliance, and threat monitoring.",
     href: "/services/cybersecurity",
@@ -92,23 +92,31 @@ export default function OurServices() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group relative rounded-2xl border border-neutral-200/50 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.02] backdrop-blur-md p-8 shadow-[0_8px_30px_rgb(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/80 dark:hover:bg-white/[0.05] hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+              className="group relative rounded-2xl border border-neutral-200/50 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.02] backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/80 dark:hover:bg-white/[0.05] hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col justify-between"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-neutral-100/80 dark:bg-white/[0.04] border border-neutral-200/50 dark:border-white/[0.08] text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-neutral-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-neutral-900 group-hover:shadow-md">
-                <service.icon className="h-6 w-6" />
+              <div>
+                <div className="relative w-full aspect-video overflow-hidden rounded-xl bg-neutral-100/50 dark:bg-white/[0.02] border border-neutral-200/30 dark:border-white/[0.05] mb-6">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm text-textMuted leading-relaxed">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-foreground">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm text-textMuted leading-relaxed">
-                {service.description}
-              </p>
-              <Link
-                href={service.href}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-800 dark:text-neutral-200 transition-all hover:text-primary dark:hover:text-white hover:gap-2.5"
-              >
-                Learn More <ArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="mt-6">
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-800 dark:text-neutral-200 transition-all hover:text-primary dark:hover:text-white hover:gap-2.5"
+                >
+                  Learn More <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>

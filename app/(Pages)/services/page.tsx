@@ -56,8 +56,13 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section
         ref={servicesRef}
-        className="py-24 transition-colors duration-300 bg-background"
+        className="relative py-24 transition-colors duration-300 bg-background overflow-hidden"
       >
+        {/* Ambient glassmorphic glows */}
+        <div className="absolute inset-0 pointer-events-none -z-10">
+          <div className="absolute top-1/4 -right-40 h-[500px] w-[500px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-60" />
+          <div className="absolute bottom-1/4 -left-40 h-[500px] w-[500px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-60" />
+        </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"

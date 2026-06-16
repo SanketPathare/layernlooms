@@ -28,7 +28,7 @@ export const services: Service[] = [
         description: "Build powerful web applications with cutting-edge technologies",
         longDescription: "Our web development services deliver high-performance, scalable, and secure web applications tailored to your business needs. We use the latest frameworks and best practices to ensure your web presence stands out.",
         icon: "/icons/web-dev.svg",
-        image: "/E-Commerce.png",
+        image: "/web-dev.png",
         features: [
             "Custom Web Applications",
             "Responsive Design",
@@ -72,7 +72,7 @@ export const services: Service[] = [
         description: "Create engaging mobile experiences for iOS and Android",
         longDescription: "We develop high-quality mobile applications that deliver exceptional user experiences. Whether you need native iOS/Android apps or cross-platform solutions, we've got you covered.",
         icon: "/icons/mobile-dev.svg",
-        image: "/Mobile.png",
+        image: "/mobile-app.png",
         features: [
             "Native iOS Development (Swift)",
             "Native Android Development (Kotlin)",
@@ -106,7 +106,7 @@ export const services: Service[] = [
         description: "Leverage artificial intelligence for business transformation",
         longDescription: "Harness the power of artificial intelligence and machine learning to automate processes, gain insights, and create intelligent products that learn and adapt.",
         icon: "/icons/ai-ml.svg",
-        image: "/AI.png",
+        image: "/ai-ml.png",
         features: [
             "Machine Learning Models",
             "Natural Language Processing",
@@ -135,7 +135,7 @@ export const services: Service[] = [
         description: "Modern cloud architecture and DevOps services",
         longDescription: "Transform your infrastructure with cloud-native solutions. We help you leverage the full potential of cloud computing for scalability, reliability, and cost efficiency.",
         icon: "/icons/cloud.svg",
-        image: "/Cloud.png",
+        image: "/cloud-infra.png",
         features: [
             "Cloud Migration",
             "DevOps Implementation",
@@ -164,7 +164,7 @@ export const services: Service[] = [
         description: "Design exceptional user experiences that delight",
         longDescription: "Our design team creates beautiful, intuitive interfaces that users love. We focus on user-centered design to ensure your product is both functional and aesthetically pleasing.",
         icon: "/icons/design.svg",
-        image: "/ux-vs-ui-design@2x.png",
+        image: "/ui-ux.png",
         features: [
             "User Research",
             "Wireframing & Prototyping",
@@ -193,7 +193,7 @@ export const services: Service[] = [
         description: "Accelerate growth with strategic digital marketing",
         longDescription: "Drive traffic, engagement, and conversions with our comprehensive digital marketing services. We use data-driven strategies to achieve measurable results.",
         icon: "/icons/marketing.svg",
-        image: "/Design.png",
+        image: "/digital-marketing.png",
         features: [
             "SEO Optimization",
             "Content Marketing",
@@ -222,7 +222,7 @@ export const services: Service[] = [
         description: "Track, analyze, and optimize your SaaS product with powerful real-time insights",
         longDescription: "Our SaaS analytics platform helps businesses monitor performance, understand user behavior, and make data-driven decisions. With real-time dashboards and advanced data visualization, you gain complete visibility into your product's growth and performance.",
         icon: "/icons/analytics.svg",
-        image: "/SaaS.png",
+        image: "/saas-analytics.png",
         features: [
             "Real-time Data Tracking",
             "Custom Dashboards",

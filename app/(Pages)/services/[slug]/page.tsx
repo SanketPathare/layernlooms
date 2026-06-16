@@ -137,7 +137,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Right Column - Sidebar */}
             <div className="lg:col-span-1">
               {/* Contact Card */}
-              <div className="mt-8 rounded-2xl bg-secondary p-6">
+              <div className="mt-8 rounded-2xl border border-neutral-200/50 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.02] backdrop-blur-md p-6 shadow-[0_8px_30px_rgb(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
                 <h3 className="text-lg font-semibold text-foreground">
                   Need a Custom Solution?
                 </h3>

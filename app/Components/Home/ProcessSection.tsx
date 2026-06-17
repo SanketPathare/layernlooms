@@ -3,6 +3,16 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Search, PenTool, Code2, Rocket, RefreshCw, Settings } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+
+const themeColors = {
+  zinc: "#a1a1aa",
+  purple: "#a78bfa",
+  green: "#34d399",
+  cyan: "#22d3ee",
+  amber: "#fb923c",
+  pink: "#f472b6",
+};
 
 const steps = [
   {
@@ -46,6 +56,8 @@ const containerVariants = {
 };
 
 export default function ProcessSection() {
+  const { pointerTheme } = useTheme();
+  const activeColor = themeColors[pointerTheme as keyof typeof themeColors] || "#a1a1aa";
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
@@ -72,7 +84,12 @@ export default function ProcessSection() {
         >
           <h2 className="text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white sm:text-5xl">
             Our{" "}
-            <span className="bg-gradient-to-r from-neutral-900 to-neutral-700 dark:from-white dark:to-neutral-400 bg-clip-text text-transparent font-black">
+            <span
+              className="bg-clip-text text-transparent transition-all duration-500 font-extrabold"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${activeColor}, ${activeColor}bb)`,
+              }}
+            >
               Process
             </span>
           </h2>

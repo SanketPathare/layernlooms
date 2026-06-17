@@ -367,10 +367,10 @@ export default function WhyChooseUs() {
   const activeColor = themeColors[pointerTheme] || "#a1a1aa";
 
   return (
-    <section className="relative py-16 sm:py-20 bg-secondary/30 dark:bg-zinc-950/20 overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-secondary/60 dark:bg-zinc-950/20 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 -right-40 h-[400px] w-[400px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
-        <div className="absolute bottom-1/4 -left-40 h-[400px] w-[400px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
+        <div className="absolute top-1/4 -right-40 h-[400px] w-[400px] rounded-full bg-neutral-200/40 dark:bg-zinc-900/10 blur-3xl opacity-75" />
+        <div className="absolute bottom-1/4 -left-40 h-[400px] w-[400px] rounded-full bg-neutral-200/40 dark:bg-zinc-900/10 blur-3xl opacity-75" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

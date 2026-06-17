@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ShieldCheck, Lightbulb, BadgeCheck, Layers, TrendingUp, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 const themeColors = {
@@ -17,208 +17,39 @@ const themeColors = {
 const reasons = [
   {
     type: "trust",
-    title: "Trust",
-    description: "Building lasting relationships through complete transparency, active communication, and dependable engineering. We align our goals with your vision to create a foundation of mutual growth.",
+    title: "Trust & Transparency",
+    description: "Building lasting relationships through complete transparency, open communication, and dependable engineering. We align our goals with yours to create a foundation of mutual growth and shared success.",
   },
   {
     type: "innovation",
-    title: "Innovation",
-    description: "Embracing cutting-edge creativity and advanced AI tech in every project we deliver. We continuously challenge the status quo to build future-ready, high-performance solutions.",
+    title: "Innovation First",
+    description: "Embracing cutting-edge creativity and advanced AI in every project we deliver. We challenge the status quo to build future-ready, high-impact solutions that set new benchmarks.",
   },
   {
     type: "reliability",
-    title: "Reliability",
-    description: "Consistent engineering quality and robust product architecture you can always count on. We deliver clean, battle-tested software designed to scale seamlessly under heavy workloads.",
+    title: "Uncompromising Reliability",
+    description: "Delivering consistent engineering quality and robust architecture you can always count on. We build clean, battle-tested software designed to scale effortlessly under demanding workloads.",
   },
   {
     type: "expertise",
-    title: "Expertise",
-    description: "Deep industry knowledge and highly specialized skills in every customized solution. Our seasoned development team leverages proven design patterns and state-of-the-art frameworks.",
+    title: "Deep Expertise",
+    description: "Bringing deep industry knowledge and specialized skills to every custom solution. Our seasoned team applies proven design patterns and modern frameworks to solve complex challenges.",
   },
   {
     type: "growth",
-    title: "Growth",
-    description: "Empowering clients to scale operations, reach new business heights, and exceed market expectations. We engineer flexible digital systems built to grow alongside your expanding customer base.",
+    title: "Driven by Growth",
+    description: "Empowering you to scale operations, reach new heights, and exceed market expectations. We engineer flexible digital systems built to evolve alongside your expanding vision.",
   },
 ];
 
 // MICRO-ANIMATED DETAILED ICON COMPONENTS
 
-function AnimatedTrustIcon({ color, isHovered }: { color: string; isHovered: boolean }) {
-  return (
-    <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <motion.path
-          d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            scale: isHovered ? [1, 1.05, 1] : 1,
-            stroke: isHovered ? color : "var(--muted-foreground)" 
-          }}
-          transition={{ duration: 0.4 }}
-        />
-        <motion.path
-          d="M9 11l2 2 4-4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            pathLength: isHovered ? [0, 1] : 1,
-            stroke: isHovered ? color : "var(--muted-foreground)" 
-          }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-        />
-      </svg>
-    </div>
-  );
-}
-
-function AnimatedInnovationIcon({ color, isHovered }: { color: string; isHovered: boolean }) {
-  return (
-    <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <motion.path
-          d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 006 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            rotate: isHovered ? [0, -8, 8, -6, 0] : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ duration: 0.6 }}
-        />
-        <motion.path
-          d="M9 18h6M10 22h4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ stroke: isHovered ? color : "var(--muted-foreground)" }}
-        />
-        <motion.path
-          d="M12 2v1M5 5l1 1M2 12h1M18 6l1-1M21 12h1"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ opacity: 0.3 }}
-          animate={{ 
-            opacity: isHovered ? [0.3, 1, 0.5, 1] : 0.3,
-            stroke: isHovered ? color : "var(--muted-foreground)" 
-          }}
-          transition={{ duration: 0.8, repeat: isHovered ? Infinity : 0, repeatType: "reverse" }}
-        />
-      </svg>
-    </div>
-  );
-}
-
-function AnimatedReliabilityIcon({ color, isHovered }: { color: string; isHovered: boolean }) {
-  return (
-    <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <motion.path
-          d="M12 22a10 10 0 100-20 10 10 0 000 20z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            rotate: isHovered ? 90 : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-        />
-        <motion.path
-          d="M9 12l2 2 4-4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            scale: isHovered ? [1, 1.15, 1] : 1,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-        />
-      </svg>
-    </div>
-  );
-}
-
-function AnimatedExpertiseIcon({ color, isHovered }: { color: string; isHovered: boolean }) {
-  return (
-    <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <motion.path
-          d="M12 2L2 7l10 5 10-5-10-5z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            y: isHovered ? -3 : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        />
-        <motion.path
-          d="M2 17l10 5 10-5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            y: isHovered ? 2 : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        />
-        <motion.path
-          d="M2 12l10 5 10-5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            y: isHovered ? -0.5 : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-        />
-      </svg>
-    </div>
-  );
-}
-
-function AnimatedGrowthIcon({ color, isHovered }: { color: string; isHovered: boolean }) {
-  return (
-    <div className="relative w-6 h-6 flex items-center justify-center shrink-0">
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <motion.path
-          d="M23 6l-9.5 9.5-5-5L1 18"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-        />
-        <motion.path
-          d="M17 6h6v6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          animate={{ 
-            x: isHovered ? [0, 3, 0] : 0,
-            y: isHovered ? [0, -3, 0] : 0,
-            stroke: isHovered ? color : "var(--muted-foreground)"
-          }}
-          transition={{ duration: 0.5, repeat: isHovered ? Infinity : 0, repeatType: "reverse" }}
-        />
-      </svg>
-    </div>
-  );
-}
-
-const reasonIcons = {
-  trust: AnimatedTrustIcon,
-  innovation: AnimatedInnovationIcon,
-  reliability: AnimatedReliabilityIcon,
-  expertise: AnimatedExpertiseIcon,
-  growth: AnimatedGrowthIcon,
-};
-
 // VECTOR ILLUSTRATION COMPONENTS
 
 function TrustIllustration({ color, isHovered }: { color: string; isHovered: boolean }) {
   return (
-    <div className="h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
-      <div className="relative w-[180px] h-[110px]">
+    <div className="h-[140px] sm:h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
+      <div className="relative w-[160px] sm:w-[180px] h-[90px] sm:h-[110px]">
         {/* Capsule 1 (back) */}
         <motion.div
           animate={{ y: isHovered ? -4 : 0, opacity: isHovered ? 0.6 : 0.4 }}
@@ -259,8 +90,8 @@ function TrustIllustration({ color, isHovered }: { color: string; isHovered: boo
 
 function InnovationIllustration({ color, isHovered }: { color: string; isHovered: boolean }) {
   return (
-    <div className="h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
-      <div className="relative w-[180px] h-[120px]">
+    <div className="h-[140px] sm:h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
+      <div className="relative w-[160px] sm:w-[180px] h-[100px] sm:h-[120px]">
         {/* Document 1 (back left) */}
         <motion.div
           animate={{ rotate: isHovered ? -12 : -8, x: isHovered ? -8 : 0 }}
@@ -317,8 +148,8 @@ function InnovationIllustration({ color, isHovered }: { color: string; isHovered
 
 function ReliabilityIllustration({ color, isHovered }: { color: string; isHovered: boolean }) {
   return (
-    <div className="h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
-      <div className="relative w-[180px] h-[110px]">
+    <div className="h-[140px] sm:h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
+      <div className="relative w-[160px] sm:w-[180px] h-[90px] sm:h-[110px]">
         {/* Star Rating Card */}
         <motion.div
           animate={{ x: isHovered ? -3 : 0, y: isHovered ? -1 : 0 }}
@@ -370,8 +201,8 @@ function ReliabilityIllustration({ color, isHovered }: { color: string; isHovere
 
 function ExpertiseIllustration({ color, isHovered }: { color: string; isHovered: boolean }) {
   return (
-    <div className="h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
-      <div className="relative w-[180px] h-[120px] flex items-center justify-center">
+    <div className="h-[140px] sm:h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
+      <div className="relative w-[160px] sm:w-[180px] h-[100px] sm:h-[120px] flex items-center justify-center">
         {/* Isometric stacked layers */}
         <div className="relative w-[110px] h-[75px]" style={{ transform: "rotateX(55deg) rotateZ(-45deg)", transformStyle: "preserve-3d" }}>
           {/* Bottom Layer */}
@@ -426,8 +257,8 @@ function ExpertiseIllustration({ color, isHovered }: { color: string; isHovered:
 
 function GrowthIllustration({ color, isHovered }: { color: string; isHovered: boolean }) {
   return (
-    <div className="h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
-      <div className="relative w-[180px] h-[120px] flex items-center justify-center">
+    <div className="h-[140px] sm:h-[185px] w-full relative overflow-hidden rounded-2xl bg-neutral-50/50 dark:bg-black/30 border border-neutral-200/50 dark:border-neutral-800/60 flex items-center justify-center shadow-inner">
+      <div className="relative w-[160px] sm:w-[180px] h-[100px] sm:h-[120px] flex items-center justify-center">
         {/* Dotted orbits */}
         <motion.div
           animate={{ rotate: isHovered ? 360 : 0 }}
@@ -491,13 +322,12 @@ function ValueCard({
   activeColor: string;
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const Icon = reasonIcons[type as keyof typeof reasonIcons] || AnimatedTrustIcon;
 
   return (
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col justify-start w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] rounded-3xl border border-neutral-200/50 dark:border-white/[0.04] bg-white dark:bg-zinc-950/40 p-6 shadow-xs dark:shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-md dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+      className="group relative flex flex-col justify-start w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] rounded-3xl border border-neutral-200/50 dark:border-white/[0.04] bg-white dark:bg-zinc-950/40 p-4 sm:p-6 shadow-xs dark:shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-md dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
     >
       {/* 1. Illustration Container goes at the TOP */}
       {type === "trust" && <TrustIllustration color={activeColor} isHovered={isHovered} />}
@@ -509,7 +339,6 @@ function ValueCard({
       {/* 2. Text layout goes at the BOTTOM */}
       <div className="mt-6 space-y-3">
         <div className="flex items-center gap-2.5">
-          <Icon color={activeColor} isHovered={isHovered} />
           <h3
             className="text-lg font-bold text-foreground tracking-tight transition-colors duration-300"
             style={{ color: isHovered ? activeColor : undefined }}
@@ -538,13 +367,13 @@ export default function WhyChooseUs() {
   const activeColor = themeColors[pointerTheme] || "#a1a1aa";
 
   return (
-    <section className="relative py-20 bg-secondary/30 dark:bg-zinc-950/20 overflow-hidden">
+    <section className="relative py-16 sm:py-20 bg-secondary/30 dark:bg-zinc-950/20 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute top-1/4 -right-40 h-[400px] w-[400px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
         <div className="absolute bottom-1/4 -left-40 h-[400px] w-[400px] rounded-full bg-neutral-200/20 dark:bg-zinc-900/10 blur-3xl opacity-75" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -552,7 +381,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
             What Drives Our{" "}
             <span
               className="bg-clip-text text-transparent transition-all duration-500 font-extrabold"
@@ -564,7 +393,7 @@ export default function WhyChooseUs() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-textMuted max-w-2xl mx-auto">
-            Our core values shape every decision, guide every project, and define who we are as a team.
+            Our core values fuel every decision, inspire every project, and define who we are as a team.
           </p>
         </motion.div>
 
@@ -573,7 +402,7 @@ export default function WhyChooseUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 flex flex-wrap justify-center gap-6"
+          className="mt-10 sm:mt-16 flex flex-wrap justify-center gap-4 sm:gap-6"
         >
           {reasons.map((reason) => (
             <ValueCard

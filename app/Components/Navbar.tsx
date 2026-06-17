@@ -101,7 +101,6 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-3 shrink-0">
-          <ThemeToggle />
           <Link
             href="/contact"
             className="relative group overflow-hidden px-5 py-2 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-neutral-950 transition-colors duration-300"
@@ -261,10 +260,6 @@ const Navbar = () => {
               </div>
 
               <div className="px-5 pb-8 space-y-4">
-                <div className="flex justify-between items-center bg-neutral-50 dark:bg-neutral-900/40 p-3 rounded-2xl border border-neutral-200/50 dark:border-neutral-800/50">
-                  <span className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">Theme</span>
-                  <ThemeToggle />
-                </div>
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}

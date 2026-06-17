@@ -130,6 +130,27 @@ export default function FAQSection() {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 sm:mt-16 text-center"
+        >
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+            Still have questions?
+          </h3>
+          <p className="mt-2 text-sm sm:text-base text-textMuted">
+            Can't find what you're looking for? Our team is here to help with personalized answers.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block mt-6 px-6 sm:px-8 py-3 rounded-xl bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-all duration-300"
+          >
+            Contact Support
+          </a>
+        </motion.div>
       </div>
     </section>
   );

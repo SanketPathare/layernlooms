@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { ThemeProvider } from "./context/ThemeContext";
+import CustomCursor from "./Components/CustomCursor";
+import ThemeCustomizer from "./Components/ThemeCustomizer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,6 +50,8 @@ export default function RootLayout({
             </main>
           </div>
           <Footer />
+          <CustomCursor />
+          <ThemeCustomizer />
         </ThemeProvider>
       </body>
     </html>

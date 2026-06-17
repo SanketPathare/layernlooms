@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Linkedin, Facebook, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 
 const footerData = {
@@ -184,24 +185,29 @@ export default function Footer() {
               © {currentYear} {footerData.company.name}. All rights reserved.
             </div>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-4">
-              {footerData.social.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className={`transition-all duration-300 hover:scale-110 ${iconColor} ${hoverText}`}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
+            {/* Right Group: ThemeToggle + Socials */}
+            <div className="flex flex-col sm:flex-row items-center gap-6">
+              <ThemeToggle />
+
+              {/* Social icons */}
+              <div className="flex items-center gap-4">
+                {footerData.social.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className={`transition-all duration-300 hover:scale-110 ${iconColor} ${hoverText}`}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

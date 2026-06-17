@@ -11,16 +11,16 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-4">
       <HeroSection />
-      <div className="rounded-2xl border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
+      <div className="rounded-2xl border border-neutral-300 dark:border-white/[0.06] overflow-hidden">
         <WhyChooseUs />
       </div>
-      <div className="rounded-2xl border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
+      <div className="rounded-2xl border border-neutral-300 dark:border-white/[0.06] overflow-hidden">
         <OurServices />
       </div>
-      <div className="rounded-2xl border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
+      <div className="rounded-2xl border border-neutral-300 dark:border-white/[0.06] overflow-hidden">
         <ProcessSection />
       </div>
-      <div className="rounded-2xl border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
+      <div className="rounded-2xl border border-neutral-300 dark:border-white/[0.06] overflow-hidden">
         <TechStackSection />
       </div>
       {/* <EngagementModels /> */}

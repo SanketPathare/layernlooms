@@ -94,7 +94,7 @@ export default function TechStackSection() {
         transition={{ duration: 0.5, delay: index * 0.1 }}
         onMouseEnter={() => setHoveredCard(item.id)}
         onMouseLeave={() => setHoveredCard(null)}
-        className="group relative rounded-2xl border border-neutral-200/50 dark:border-white/[0.06] bg-gradient-to-br from-white/90 to-neutral-50/90 dark:from-neutral-900 dark:to-neutral-950 backdrop-blur-md p-8 shadow-[0_8px_30px_rgba(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1.5 hover:border-neutral-300 dark:hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.02)] flex flex-col justify-start cursor-default overflow-hidden no-snap w-full"
+        className="group relative rounded-2xl border border-neutral-300 dark:border-white/[0.06] bg-gradient-to-br from-white/90 to-neutral-50/90 dark:from-neutral-900 dark:to-neutral-950 backdrop-blur-md p-8 shadow-[0_8px_30px_rgba(0,0,0,0.01)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1.5 hover:border-neutral-400 dark:hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_20px_50px_rgba(255,255,255,0.02)] flex flex-col justify-start cursor-default overflow-hidden no-snap w-full"
       >
         {/* 1. Logo and Arrow Row */}
         <div className="flex justify-between items-start w-full">

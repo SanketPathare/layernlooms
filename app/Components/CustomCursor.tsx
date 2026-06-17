@@ -90,7 +90,12 @@ export default function CustomCursor() {
         target.classList.contains('cursor-pointer');
 
       if (clickable) {
-        setHoveredElement(clickable as HTMLElement);
+        const shouldSnap = !clickable.closest('.no-snap');
+        if (shouldSnap) {
+          setHoveredElement(clickable as HTMLElement);
+        } else {
+          setHoveredElement(null);
+        }
         setIsHovered(true);
       } else {
         setHoveredElement(null);

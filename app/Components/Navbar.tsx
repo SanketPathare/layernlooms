@@ -78,7 +78,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative px-4.5 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${
+                className={`relative px-4.5 py-2 text-xs font-medium rounded-full transition-colors duration-300 ${
                   active
                     ? 'text-white dark:text-neutral-900'
                     : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
@@ -104,7 +104,7 @@ const Navbar = () => {
           <ThemeToggle />
           <Link
             href="/contact"
-            className="relative group overflow-hidden px-5 py-2 text-sm font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-neutral-950 transition-colors duration-300"
+            className="relative group overflow-hidden px-5 py-2 text-xs font-semibold rounded-full border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-neutral-950 transition-colors duration-300"
           >
             <span className="absolute inset-0 w-full h-full bg-neutral-900 dark:bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full -z-10" />
             <span className="relative z-10">Get Started</span>
@@ -120,7 +120,7 @@ const Navbar = () => {
             : 'translate-y-6 opacity-0 pointer-events-none'
         }`}
       >
-        {navItems.slice(0, 4).map(({ name, icon: Icon, href }) => {
+        {navItems.map(({ name, icon: Icon, href }) => {
           const active = isActive(href);
           return (
             <Link

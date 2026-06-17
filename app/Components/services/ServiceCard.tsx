@@ -14,7 +14,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service, index }: ServiceCardProps) {
     return (
-        <Link href={`/services/${service.slug}`} className="w-full h-full flex">
+        <Link href={`/services/${service.slug}`} className="w-full h-full flex no-snap">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                             src={service.image}
                             alt={service.title}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                         />
                     </div>
 

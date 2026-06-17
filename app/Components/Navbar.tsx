@@ -63,8 +63,8 @@ const Navbar = () => {
       <header
         className={`hidden lg:flex sticky top-4 z-50 items-center justify-between w-full px-6 py-2.5 rounded-2xl transition-all duration-500 border shadow-none dark:shadow-lg ${
           scrolled
-            ? 'bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border-neutral-200/80 dark:border-neutral-800/80'
-            : 'bg-white/40 dark:bg-neutral-950/40 backdrop-blur-md border-neutral-200 dark:border-neutral-800/30'
+            ? 'bg-white dark:bg-neutral-950/80 backdrop-blur-xl border-neutral-200/80 dark:border-neutral-800/80'
+            : 'bg-white dark:bg-neutral-950/40 backdrop-blur-md border-neutral-200 dark:border-neutral-800/30'
         } ${visible ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'}`}
       >
         <Link href="/" className="shrink-0 flex items-center hover:scale-105 transition-transform duration-300">
@@ -114,7 +114,7 @@ const Navbar = () => {
 
       {/* ─── Desktop Floating Bottom Nav (appears when scrolling down) ─── */}
       <nav
-        className={`hidden lg:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center gap-2 px-4 py-2.5 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-none dark:shadow-xl transition-all duration-500 ${
+        className={`hidden lg:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center gap-2 px-4 py-2.5 bg-white dark:bg-neutral-950/80 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-none dark:shadow-xl transition-all duration-500 ${
           !visible && scrolled
             ? 'translate-y-0 opacity-100'
             : 'translate-y-6 opacity-0 pointer-events-none'
@@ -158,8 +158,8 @@ const Navbar = () => {
       <header
         className={`lg:hidden sticky top-3 z-50 flex items-center justify-between w-full px-4 py-2.5 rounded-2xl border shadow-none dark:shadow-md transition-all duration-500 ${
           scrolled
-            ? 'bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl border-neutral-200/80 dark:border-neutral-800/80'
-            : 'bg-white/60 dark:bg-neutral-950/60 backdrop-blur-md border-neutral-200/30 dark:border-neutral-800/30'
+            ? 'bg-white dark:bg-neutral-950/90 backdrop-blur-xl border-neutral-200/80 dark:border-neutral-800/80'
+            : 'bg-white dark:bg-neutral-950/60 backdrop-blur-md border-neutral-200/30 dark:border-neutral-800/30'
         } ${visible ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'}`}
       >
         <Link href="/" className="hover:opacity-95 transition-opacity">

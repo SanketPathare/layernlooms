@@ -48,7 +48,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [pointerTheme, setPointerThemeState] = useState<PointerTheme>('zinc');
   const [pointerEnabled, setPointerEnabledState] = useState<boolean>(true);
   const [pointerStyle, setPointerStyleState] = useState<PointerStyle>('classic');
-  const [pointerEffects, setPointerEffectsState] = useState<boolean>(true);
+  const [pointerEffects, setPointerEffectsState] = useState<boolean>(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme | null;

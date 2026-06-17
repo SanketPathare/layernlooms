@@ -24,8 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <head />
+      <body className={`${inter.className} ${inter.variable} antialiased`}>
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -40,8 +42,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className={`${inter.className} ${inter.variable} antialiased`}>
         <ThemeProvider>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12">
             <Navbar />

@@ -2,6 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Search, PenTool, Code2, Rocket, RefreshCw, Settings } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+
+const themeColors = {
+  zinc: "#a1a1aa",
+  purple: "#a78bfa",
+  green: "#34d399",
+  cyan: "#22d3ee",
+  amber: "#fb923c",
+  pink: "#f472b6",
+};
 
 const steps = [
   {
@@ -50,6 +60,9 @@ const itemVariants = {
 };
 
 export default function ProcessSection() {
+  const { pointerTheme } = useTheme();
+  const activeColor = themeColors[pointerTheme] || "#a1a1aa";
+
   return (
     <section className="py-20 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -60,8 +73,16 @@ export default function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our Process
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Our{" "}
+            <span
+              className="bg-clip-text text-transparent transition-all duration-500 font-extrabold"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${activeColor}, ${activeColor}bb)`,
+              }}
+            >
+              Process
+            </span>
           </h2>
           <p className="mt-4 text-lg text-textMuted max-w-2xl mx-auto">
             A structured, transparent approach that takes your project from concept to launch.

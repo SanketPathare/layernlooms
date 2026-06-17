@@ -2,6 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Code2, Brain, Cloud, Shield, Smartphone, Database } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+
+const themeColors = {
+  zinc: "#a1a1aa",
+  purple: "#a78bfa",
+  green: "#34d399",
+  cyan: "#22d3ee",
+  amber: "#fb923c",
+  pink: "#f472b6",
+};
 
 const expertiseAreas = [
   {
@@ -50,6 +60,9 @@ const itemVariants = {
 };
 
 export default function ExpertiseSection() {
+  const { pointerTheme } = useTheme();
+  const activeColor = themeColors[pointerTheme] || "#a1a1aa";
+
   return (
     <section className="relative py-20 bg-background overflow-hidden">
       {/* Ambient glassmorphic glows */}
@@ -66,8 +79,16 @@ export default function ExpertiseSection() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our Expertise
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Our{" "}
+            <span
+              className="bg-clip-text text-transparent transition-all duration-500 font-extrabold"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${activeColor}, ${activeColor}bb)`,
+              }}
+            >
+              Expertise
+            </span>
           </h2>
           <p className="mt-4 text-lg text-textMuted max-w-2xl mx-auto">
             We bring deep technical expertise across a wide range of domains to deliver impactful solutions.

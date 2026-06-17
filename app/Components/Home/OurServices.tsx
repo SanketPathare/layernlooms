@@ -3,6 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTheme } from "../../context/ThemeContext";
+
+const themeColors = {
+  zinc: "#a1a1aa",
+  purple: "#a78bfa",
+  green: "#34d399",
+  cyan: "#22d3ee",
+  amber: "#fb923c",
+  pink: "#f472b6",
+};
 
 const services = [
   {
@@ -57,6 +67,9 @@ const itemVariants = {
 };
 
 export default function OurServices() {
+  const { pointerTheme } = useTheme();
+  const activeColor = themeColors[pointerTheme] || "#a1a1aa";
+
   return (
     <section className="relative py-20 bg-secondary/30 dark:bg-zinc-950/20 overflow-hidden">
       {/* Ambient glassmorphic glows */}
@@ -73,8 +86,16 @@ export default function OurServices() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our Services
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Our{" "}
+            <span
+              className="bg-clip-text text-transparent transition-all duration-500 font-extrabold"
+              style={{
+                backgroundImage: `linear-gradient(to right, ${activeColor}, ${activeColor}bb)`,
+              }}
+            >
+              Services
+            </span>
           </h2>
           <p className="mt-4 text-lg text-textMuted max-w-2xl mx-auto">
             End-to-end digital services tailored to your business needs.

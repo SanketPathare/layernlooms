@@ -67,24 +67,36 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <p className="mt-6 text-lg leading-8 text-textMuted">
                 {project.description}
               </p>
-              <div className="mt-8 flex items-center gap-x-4">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
                   className="rounded-full bg-primary px-6 py-3 text-base font-semibold text-background shadow-sm hover:opacity-90 transition-colors"
                 >
                   Start Similar Project
                 </Link>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-card border border-border px-6 py-3 text-base font-semibold text-foreground hover:bg-secondary transition-colors inline-flex items-center gap-2"
+                  >
+                    Visit Website
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                )}
               </div>
             </div>
 
             {/* Right Image */}
             <div className="relative">
-              <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl border border-border">
+              <div className="relative aspect-[4/2.5] w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-border">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain transition-all duration-700 group-hover:scale-105"
                   priority
                 />
               </div>
@@ -101,7 +113,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <div className="lg:col-span-2">
               {/* Challenge */}
               <div className="prose prose-lg max-w-none ">
-                <h2 className="text-3xl font-bold text-foreground mb-6">The Challenge</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-6">About </h2>
                 <p className="text-textMuted leading-relaxed mb-12">
                   {project.longDescription}
                 </p>
@@ -148,6 +160,20 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       <p className="text-xs font-bold uppercase tracking-widest text-textMuted mb-1">Year</p>
                       <p className="text-foreground font-medium">{project.year}</p>
                     </div>
+                    {project.url && (
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-textMuted mb-1">Website</p>
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground font-medium hover:text-primary transition-colors inline-flex items-center gap-1"
+                        >
+                          Visit Project
+                          <ArrowRight className="w-3 h-3" />
+                        </a>
+                      </div>
+                    )}
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-textMuted mb-1">Tech Stack</p>
                       <div className="mt-2 flex flex-wrap gap-2">

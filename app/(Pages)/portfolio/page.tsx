@@ -111,21 +111,33 @@ export default function PortfolioPage() {
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                   className="group relative"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-secondary border border-border shadow-sm">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-secondary border border-border shadow-sm">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-fit"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3">
                       <Link
                         href={`/portfolio/${project.slug}`}
-                        className="bg-background text-foreground px-6 py-3 rounded-full font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+                        className="bg-background text-foreground px-5 py-2.5 rounded-full font-medium text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
                       >
-                        View Case Study
+                        Case Study
                         <ArrowRight className="w-4 h-4" />
                       </Link>
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white/20 backdrop-blur-sm text-white px-5 py-2.5 rounded-full font-medium text-sm flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 hover:bg-white/30"
+                        >
+                          Live Site
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
 

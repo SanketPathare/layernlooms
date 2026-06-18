@@ -7,6 +7,7 @@ export interface Project {
     image: string;
     client: string;
     year: string;
+    url?: string;
     services: string[];
     technologies: string[];
     result: string;
@@ -18,67 +19,37 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  
+    
+
+
     {
-        slug: "eco-store-modernization",
-        title: "EcoStore Platform",
-        category: "E-Commerce",
-        description: "A high-performance sustainable marketplace built with Next.js.",
-        longDescription: "EcoStore needed a modern solution to handle their growing traffic and provide a seamless shopping experience for environmentally conscious consumers. We built a custom Next.js platform integrated with Shopify's headless API, resulting in a 45% increase in conversion rate.",
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1600",
-        client: "EcoStore Global",
-        year: "2024",
-        services: ["Web Development", "UI/UX Design", "E-commerce"],
-        technologies: ["Next.js", "Shopify API", "Tailwind CSS", "Framer Motion"],
-        result: "45% conversion increase, 2s reduction in load time.",
-        testimonial: {
-            text: "The new platform has completely transformed how we interact with our customers. The speed and design are unmatched.",
-            author: "Sarah Jenkins",
-            role: "CEO, EcoStore"
-        }
+        slug: "imgira-tools",
+        title: "Imgira Tools",
+        category: "Design & Developer Tools",
+        description: "200+ free, browser-based tools for creators, designers, and developers — no installs or sign-ups required.",
+        longDescription: "Imgira is a comprehensive online platform offering 200+ free, browser-based tools for creators, designers, and developers. It requires no installations, downloads, or sign-ups. Key tool categories include: Image Editing & Analysis with advanced features like edge detection, threshold tools, channel splitters, histogram viewers, and built-in drawing workspaces; GIF & Media Utilities for converting video to GIF, adjusting speed, optimizing file sizes, and editing metadata; Design & Typography tools for generating custom shape cutouts, removing watermarks, and designing 3D text effects; and Math & Generative Art features such as ASCII art generation from images, recursive fractal tree simulation (Pythagoras tree generator), and Pascal's Triangle visualization.",
+        image: "/portfolio/imgira.png",
+        client: "Imgira Inc.",
+        year: "2025",
+        url: "https://www.imgira.site/",
+        services: ["Web Development", "UI/UX Design", "Cloud Infrastructure"],
+        technologies: ["Next.js", "React", "TypeScript", "Node.js", "Canvas API", "WebAssembly", "Tailwind CSS"],
+        result: "200+ free tools launched with zero sign-up friction, serving thousands of daily active creators and developers.",
     },
     {
-        slug: "fintech-dashboard",
-        title: "Nexus Finance Dashboard",
-        category: "FinTech",
-        description: "Real-time analytics and portfolio management for crypto investors.",
-        longDescription: "Nexus Finance approached us to build a robust dashboard that could aggregate data from multiple exchanges and provide real-time tax calculations. We implemented a secure, high-availability architecture that handles millions of transactions per second.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
-        client: "Nexus Labs",
-        year: "2023",
-        services: ["Web App Development", "FinTech Solutions", "Cloud Infrastructure"],
-        technologies: ["React", "Node.js", "AWS", "Socket.io"],
-        result: "Successfully handled $500M+ in assets under management.",
-        testimonial: {
-            text: "Technical excellence at its finest. The team delivered a complex product ahead of schedule.",
-            author: "Marcus Chen",
-            role: "CTO, Nexus Labs"
-        }
-    },
-    {
-        slug: "health-track-mobile",
-        title: "HealthTrack App",
-        category: "Healthcare",
-        description: "A cross-platform mobile app for remote patient monitoring.",
-        longDescription: "HealthTrack is a revolutionary mobile app that allows doctors to monitor patients' vitals in real-time. We used Flutter to build a consistent experience across iOS and Android, focusing on accessibility and HIPAA compliance.",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1600",
-        client: "MediLife Systems",
-        year: "2023",
-        services: ["Mobile Development", "HealthTech", "UI/UX Design"],
-        technologies: ["Flutter", "Firebase", "WebRTC", "Google Cloud"],
-        result: "Adopted by 50+ clinics within the first 3 months.",
-    },
-    {
-        slug: "urban-smart-city",
-        title: "SmartCity IoT Portal",
-        category: "Infrastructure",
-        description: "Visualizing urban data for smarter city management.",
-        longDescription: "We partnered with the city council to create a data visualization portal for their IoT sensor network. The portal helps urban planners monitor air quality, traffic flow, and energy consumption in real-time.",
-        image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1600",
-        client: "City of Future",
-        year: "2024",
-        services: ["Data Visualization", "IoT Integration", "GIS Development"],
-        technologies: ["D3.js", "Mapbox", "Next.js", "PostgreSQL"],
-        result: "Reduced energy waste by 15% through data-driven insights.",
+        slug: "temp-nova",
+        title: "Temp Nova",
+        category: "Privacy & Security",
+        description: "Disposable email, temporary SMS, and privacy utilities for protecting your digital identity.",
+        longDescription: "TempNova is a comprehensive privacy and security utility suite designed to provide disposable, anonymous digital identifiers for modern web users and developers. It serves as a tool for protecting personal data by replacing permanent information with transient, temporary alternatives. Core features include: Disposable Email for generating temporary email addresses to avoid spam, newsletter subscriptions, and tracking pixels during registrations; Temporary SMS for providing virtual phone numbers to receive OTPs and verification codes while keeping your real mobile number private; Identity Protection tools including a Temp Username Generator and self-destructing notes with encrypted links; Testing & Development utilities for QA testing with multiple concurrent inboxes to test registration flows and multi-user scenarios. The platform operates on a stateless architecture — no personal information, email content, or location data is permanently logged or stored.",
+        image: "/portfolio/temp-nova.png",
+        client: "TempNova Systems",
+        year: "2025",
+        url: "https://www.temp-nova.com/",
+        services: ["Web Development", "Security Engineering", "Cloud Infrastructure"],
+        technologies: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+        result: "Privacy-first platform serving thousands of users with zero data retention and full stateless architecture.",
     }
 ];
 

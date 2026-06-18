@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiHome,
+  FiInfo,
   FiBriefcase,
   FiDollarSign,
   FiMail,
@@ -26,6 +27,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', icon: FiHome, href: '/' },
+    { name: 'About', icon: FiInfo, href: '/about' },
     { name: 'Services', icon: FaServicestack, href: '/services' },
     { name: 'Portfolio', icon: FiBriefcase, href: '/portfolio' },
     { name: 'Pricing', icon: FiDollarSign, href: '/pricing' },

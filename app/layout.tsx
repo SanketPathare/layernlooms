@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -7,8 +7,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import CustomCursor from "./Components/CustomCursor";
 import ThemeCustomizer from "./Components/ThemeCustomizer";
 
-const inter = Inter({
-  variable: "--font-inter",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={`${inter.className} ${inter.variable} antialiased`}>
+      <body className={`${spaceGrotesk.className} ${spaceGrotesk.variable} antialiased`}>
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{

@@ -84,7 +84,7 @@
   --color-textColor: var(--foreground);
   --color-textMuted: var(--muted-foreground);
 
-  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
 }
 
 @layer base {

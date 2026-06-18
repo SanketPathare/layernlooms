@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Check, Target, Eye, Heart, Shield, Zap, Users, Linkedin, Twitter, Sparkles, Quote } from "lucide-react";
+import { ArrowRight, Check, Target, Eye, Heart, Shield, Zap, Users, Linkedin, Sparkles, Quote } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -48,22 +48,26 @@ const teamMembers = [
   {
     name: "Gaurav Jawalkar",
     role: "Founder & CEO",
-    bio: "Entrepreneur and business strategist leading the company's vision, innovation, and long-term growth. Focused on building scalable digital solutions and driving organizational success."
+    bio: "Entrepreneur and business strategist leading the company's vision, innovation, and long-term growth. Focused on building scalable digital solutions and driving organizational success.",
+    linkedin: "https://www.linkedin.com/in/gauravjawalkar"
   },
   {
     name: "Sanket Pathare",
     role: "Co-Founder & CTO",
-    bio: "Full-stack developer specializing in modern web technologies including Next.js, React, Node.js, and cloud-based applications. Responsible for technology strategy, architecture, and product development."
+    bio: "Full-stack developer specializing in modern web technologies including Next.js, React, Node.js, and cloud-based applications. Responsible for technology strategy, architecture, and product development.",
+    linkedin: "https://www.linkedin.com/in/sanket-pathare-740703245"
   },
   {
     name: "Shubham Tawale",
     role: "Co-Founder & COO",
-    bio: "Operations leader overseeing project execution, team coordination, and business processes. Ensures efficient delivery of products and services while maintaining operational excellence."
+    bio: "Operations leader overseeing project execution, team coordination, and business processes. Ensures efficient delivery of products and services while maintaining operational excellence.",
+    linkedin: "https://www.linkedin.com/in/shubham-tawale-b6a9b8200"
   },
   {
     name: "Jay Jawalkar",
     role: "Managing Director (MD)",
-    bio: "Responsible for business management, strategic partnerships, and organizational growth. Focused on expanding market presence and strengthening client relationships."
+    bio: "Responsible for business management, strategic partnerships, and organizational growth. Focused on expanding market presence and strengthening client relationships.",
+    linkedin: "https://www.linkedin.com/in/jay-jawalkar/"
   }
 ];
 
@@ -335,12 +339,14 @@ export default function AboutPage() {
                     className="overflow-hidden"
                   >
                     <div className="flex gap-2 pt-4 border-t border-border mt-4">
-                      <button className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-textMuted hover:text-[#0077b5] transition-colors">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-textMuted hover:text-[#0077b5] hover:bg-[#0077b5]/10 transition-all"
+                      >
                         <Linkedin className="w-4 h-4" />
-                      </button>
-                      <button className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-textMuted hover:text-[#1da1f2] transition-colors">
-                        <Twitter className="w-4 h-4" />
-                      </button>
+                      </a>
                     </div>
                   </motion.div>
                 </motion.div>

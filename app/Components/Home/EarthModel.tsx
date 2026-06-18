@@ -2,11 +2,7 @@
 
 import { useRef, useMemo, useEffect, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import * as THREE from "react-three-fiber/node_modules/three"; // Fallback import or standard three
-import * as THREE_CORE from "three";
-
-// We use the standard three import
-const THREE_ENV = THREE_CORE;
+import * as THREE_ENV from "three";
 
 function processTextures(specularImage: HTMLImageElement) {
   const width = specularImage.width;
@@ -127,10 +123,10 @@ function processLightsTexture(lightsImage: HTMLImageElement) {
 }
 
 export default function EarthModel() {
-  const groupRef = useRef<THREE_CORE.Group>(null);
-  const earthRef = useRef<THREE_CORE.Mesh>(null);
-  const cloudsRef = useRef<THREE_CORE.Mesh>(null);
-  const glowRef = useRef<THREE_CORE.Mesh>(null);
+  const groupRef = useRef<THREE_ENV.Group>(null);
+  const earthRef = useRef<THREE_ENV.Mesh>(null);
+  const cloudsRef = useRef<THREE_ENV.Mesh>(null);
+  const glowRef = useRef<THREE_ENV.Mesh>(null);
 
   const { width, height } = useThree((state) => state.viewport);
   const [entered, setEntered] = useState(false);
